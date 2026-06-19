@@ -576,7 +576,6 @@ hero("Behaviour analytics","Website heatmap software<br>that respects privacy",
 "Validate redesigns with before/after evidence, not guesswork.",
 "Prioritise CRO experiments based on where real attention and friction sit."],
 "Start your free trial", DASH_MOCK, rev=False, alt=False)
-+ '<section class="section" style="padding-top:0;"><div class="wrap"><div class="related"><strong>Related reading:</strong> <a>Session Recordings</a> · <a>A/B Testing</a> · <a>Funnel Analysis</a> · <a>What is a website heatmap? (guide)</a></div></div></section>'
 + '<section class="section dark"><div class="wrap" style="max-width:640px;text-align:center;"><div style="width:52px;height:52px;border-radius:14px;background:var(--navy2);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;"><i class="ti ti-lock" style="color:var(--teal-bright);font-size:26px;"></i></div>'
 + '<h2>Heatmaps that don\'t leak your data</h2>'
 + '<p style="margin:14px 0 24px;">Unlike Hotjar or Crazy Egg, Matomo keeps 100% of your behaviour data on your own servers or EU-based cloud. Cookieless tracking, IP anonymisation and a built-in GDPR Manager mean you can often run heatmaps without a consent banner, fully compliant with GDPR, CCPA and HIPAA.</p>'
