@@ -770,11 +770,13 @@ more="<p>Most stores run on a generic analytics tool built to count pageviews, n
 + '<div class="card"><div class="ic"><i class="ti ti-filter"></i></div><h3>Cart & checkout funnels</h3><p>Find exactly which step loses buyers, then fix it with heatmaps and session recordings.</p></div>'
 + '<div class="card"><div class="ic"><i class="ti ti-route"></i></div><h3>Full customer journey</h3><p>Attribute revenue to the right channels and campaigns across the whole path to purchase.</p></div>'
 + '</div></div></section>'
-+ '<section class="section" style="padding-top:0;"><div class="wrap" style="max-width:720px;">'+ECOM_MOCK+'</div></section>'
-+ '<section class="section"><div class="wrap prose"><h2>Built for regulated, privacy-conscious commerce</h2>'
-+ '<p>Matomo gives you accurate, unsampled ecommerce data with 100% ownership, hosted on your servers or EU-based cloud. Cookieless tracking keeps you compliant with GDPR and reduces consent friction, so you measure more visitors and lose fewer data points than consent-gated tools.</p>'
-+ '<p>It works with Shopify, WooCommerce, Magento, PrestaShop and custom stores, and connects ecommerce data to heatmaps, funnels, A/B testing and attribution, one platform for the whole conversion picture.</p>'
-+ '<div class="related"><strong>Related:</strong> <a>Conversion funnels</a> · <a>WooCommerce analytics</a> · <a>How to reduce cart abandonment</a> · <a>Ecommerce KPIs that matter</a></div></div></section>'
++ frow("Privacy-conscious commerce","Built for regulated, privacy-conscious commerce",
+"Matomo gives you accurate, unsampled ecommerce data with 100% ownership, hosted on your servers or EU-based cloud. Cookieless tracking keeps you compliant with GDPR and reduces consent friction, so you measure more visitors and lose fewer data points than consent-gated tools.",
+["Works with Shopify, WooCommerce, Magento, PrestaShop and custom stores.",
+"Connects ecommerce data to heatmaps, funnels, A/B testing and attribution.",
+"Accurate, unsampled revenue data with 100% ownership, on your servers or EU cloud.",
+"Cookieless and GDPR-ready, so you measure more and lose fewer data points."],
+"Start your free trial", ECOM_MOCK, rev=True, alt=False)
 + testimonials("What ecommerce teams say", EC_TESTI, "Real results from stores that switched to privacy-first, fully-owned analytics.")
 + morelinks("Analytics for every industry","Ecommerce is just the start. Matomo fits regulated and privacy-conscious sectors.", IND_LINKS)
 + learnmore([
