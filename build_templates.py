@@ -359,8 +359,7 @@ NAV = f"""<nav class="site"><div class="wrap">
 <div class="megacol"><h5>Trust &amp; compliance</h5><a href="#">GDPR compliance</a><a href="#">Privacy by design</a><a href="#">Security</a><a class="more" href="2-vs-page-google-analytics.html">Matomo vs Google Analytics</a></div>
 </div></div>
 <div class="navitem"><span class="top">Product <i class="ti ti-chevron-down chev"></i></span><div class="mega">
-<div class="megacol"><h5>Matomo Cloud</h5><a href="#">Hosted, EU-based</a><a href="#">Start free trial</a><a href="#">Cloud pricing</a></div>
-<div class="megacol"><h5>Matomo On-Premise</h5><a href="#">Self-hosted &amp; free</a><a href="#">Download</a><a href="#">Install guide</a></div>
+<div class="megacol"><a href="#">Matomo Cloud</a><a href="#">Matomo On-Premise</a></div>
 </div></div>
 <div class="navitem"><span class="top">Features <i class="ti ti-chevron-down chev"></i></span><div class="mega center">
 <div class="megacol"><h5>Measure</h5><a href="#">Web analytics</a><a href="#">Custom reports</a><a href="#">Real-time data</a></div>
