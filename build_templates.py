@@ -35,8 +35,10 @@ nav.site .wrap{display:flex;align-items:center;justify-content:space-between;hei
 .navitem:hover .chev{transform:rotate(180deg);}
 .mega{position:absolute;top:62px;left:0;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 26px 64px -18px rgba(21,22,58,.34);padding:26px 30px;display:flex;flex-wrap:nowrap;gap:30px;width:max-content;max-width:calc(100vw - 40px);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .16s,transform .16s,visibility .16s;z-index:60;}
 .mega.right{left:auto;right:0;}
+.mega.center{left:50%;right:auto;transform:translateX(-50%) translateY(8px);}
 .mega.m4{flex-wrap:wrap;width:432px;column-gap:36px;row-gap:24px;}
 .navitem:hover .mega{opacity:1;visibility:visible;transform:translateY(0);}
+.navitem:hover .mega.center{transform:translateX(-50%) translateY(0);}
 .megacol{min-width:160px;}
 .mega.m4 .megacol{min-width:0;width:calc(50% - 18px);}
 .megacol h5{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted2);margin-bottom:12px;}
@@ -46,7 +48,10 @@ nav.site .wrap{display:flex;align-items:center;justify-content:space-between;hei
 .megafeat{background:linear-gradient(135deg,#15163a,#123f3b);border-radius:12px;padding:20px;width:210px;color:#fff;display:flex;flex-direction:column;justify-content:center;}
 .megafeat b{font-size:14px;color:#fff;display:block;margin-bottom:8px;}
 .megafeat .pl{display:inline-block;font-size:11px;background:rgba(255,255,255,.1);color:#dcdcec;border-radius:20px;padding:4px 10px;margin:3px 3px 0 0;}
-.navcta{display:flex;align-items:center;gap:14px;}
+.navcta{display:flex;align-items:center;gap:18px;}
+.navcta .util{font-size:14px;color:#c2c2d6;display:inline-flex;align-items:center;gap:5px;cursor:pointer;}
+.navcta .util:hover{color:#fff;}
+.navcta .util .ti{font-size:15px;}
 .hero{background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);padding:90px 0 80px;text-align:center;}
 .hero h1{max-width:780px;margin:22px auto 22px;}
 .hero p.lead{font-size:20px;max-width:560px;margin:0 auto 34px;line-height:1.55;}
@@ -349,25 +354,27 @@ footer.site .base .cp{font-size:12px;color:#6a6b85;}
 NAV = f"""<nav class="site"><div class="wrap">
 <a class="logo" href="index.html"><img class="logo-img" src="{LOGO_URI}" alt="Matomo"></a>
 <div class="navlinks">
+<div class="navitem"><span class="top">Why Matomo <i class="ti ti-chevron-down chev"></i></span><div class="mega">
+<div class="megacol"><h5>Our difference</h5><a href="#">100% data ownership</a><a href="#">Cookieless tracking</a><a href="#">No data sampling</a><a href="#">Open source</a></div>
+<div class="megacol"><h5>Trust &amp; compliance</h5><a href="#">GDPR compliance</a><a href="#">Privacy by design</a><a href="#">Security</a><a class="more" href="2-vs-page-google-analytics.html">Matomo vs Google Analytics</a></div>
+</div></div>
 <div class="navitem"><span class="top">Product <i class="ti ti-chevron-down chev"></i></span><div class="mega">
+<div class="megacol"><h5>Matomo Cloud</h5><a href="#">Hosted, EU-based</a><a href="#">Start free trial</a><a href="#">Cloud pricing</a></div>
+<div class="megacol"><h5>Matomo On-Premise</h5><a href="#">Self-hosted &amp; free</a><a href="#">Download</a><a href="#">Install guide</a></div>
+</div></div>
+<div class="navitem"><span class="top">Features <i class="ti ti-chevron-down chev"></i></span><div class="mega center">
 <div class="megacol"><h5>Measure</h5><a href="#">Web analytics</a><a href="#">Custom reports</a><a href="#">Real-time data</a></div>
 <div class="megacol"><h5>Understand behaviour</h5><a href="1-feature-landing-heatmaps.html">Heatmaps</a><a href="#">Session recordings</a><a href="#">Form analytics</a></div>
-<div class="megacol"><h5>Optimise & convert</h5><a href="#">A/B testing</a><a href="#">Funnel analysis</a><a href="#">Goals & conversions</a></div>
+<div class="megacol"><h5>Optimise &amp; convert</h5><a href="#">A/B testing</a><a href="#">Funnel analysis</a><a href="#">Goals &amp; conversions</a></div>
 <div class="megacol"><h5>Collect</h5><a href="#">Tag Manager</a><a href="5-use-case-ecommerce.html">Ecommerce tracking</a><a href="#">Server-side tracking</a><a class="more" href="9-features-hub.html">See all features</a></div>
-</div></div>
-<div class="navitem"><span class="top">Solutions <i class="ti ti-chevron-down chev"></i></span><div class="mega">
-<div class="megacol"><h5>By use case</h5><a href="5-use-case-ecommerce.html">Ecommerce</a><a href="#">Marketing & CRO</a><a href="#">Product analytics</a><a href="#">SEO analytics</a></div>
-<div class="megacol"><h5>By industry</h5><a href="#">Healthcare</a><a href="#">Finance</a><a href="#">Government</a><a href="#">Agencies</a></div>
-<div class="megacol"><h5>By platform</h5><a href="4-cms-landing-wordpress.html">WordPress</a><a href="#">Shopify</a><a href="#">Drupal</a><a href="#">Joomla, Wix & more</a></div>
 </div></div>
 <div class="navitem"><span class="top">Resources <i class="ti ti-chevron-down chev"></i></span><div class="mega right">
 <div class="megacol"><h5>Learn</h5><a href="7-blog-index.html">Blog</a><a href="#">Guides</a><a href="6-blog-pillar-bounce-rate.html">Glossary</a><a href="#">Newsletter</a></div>
 <div class="megacol"><h5>Support</h5><a href="#">Help center</a><a href="#">FAQ</a><a href="#">Documentation</a><a href="#">Case studies</a></div>
-<div class="megacol"><h5>Compare</h5><a href="2-vs-page-google-analytics.html">vs Google Analytics</a><a href="#">vs Piwik PRO</a><a href="#">vs Plausible</a><a class="more" href="8-compare-hub.html">See all comparisons</a></div>
 </div></div>
 <a href="#">Pricing</a>
 </div>
-<div class="navcta"><a style="font-size:14px;color:#c2c2d6;">Log in</a><a class="btn btn-teal" style="padding:9px 16px;">Try it for free</a></div>
+<div class="navcta"><a class="util"><i class="ti ti-world"></i> EN</a><a class="util">Help</a><a class="util">Log in</a><a class="btn btn-teal" style="padding:9px 16px;">Try it for free</a></div>
 </div></nav>"""
 
 FOOTER = """<footer class="site"><div class="wrap">
