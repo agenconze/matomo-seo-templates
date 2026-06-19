@@ -576,7 +576,8 @@ hero("Behaviour analytics","Website heatmap software<br>that respects privacy",
 "Scroll maps: how far visitors really read, so key messages are never missed.",
 "Move maps: mouse movement as a proxy for where attention goes.",
 "100% data ownership and cookieless, unlike Hotjar or Crazy Egg."],
-"Start your free trial", HEAT_MOCK, rev=True, alt=True, note=True)
+"Start your free trial", HEAT_MOCK, rev=True, alt=True, note=True,
+more="<p>Traditional analytics tell you a page got 4,000 visits and a 60% bounce rate. They don't tell you that visitors never saw the call-to-action because it sat below the fold on mobile, or that half of them rage-clicked a banner that looked clickable but wasn't.</p><p>Heatmaps close that gap. Click maps reveal what people actually interact with, scroll maps show how far they read, and move maps approximate where their attention goes. Matomo records all three from cookieless, first-party data, segmentable by device, source or campaign, so you can compare a mobile visitor from search against a desktop visitor from an ad.</p>")
 + frow("Grow conversions","Turn behaviour into conversions",
 "Used alongside funnels and A/B testing, heatmaps replace opinions with evidence, so every design decision is backed by what real visitors do, and every CRO experiment targets the friction that actually costs you revenue.",
 ["Pinpoint why visitors abandon a page or checkout step before converting.",
@@ -584,7 +585,8 @@ hero("Behaviour analytics","Website heatmap software<br>that respects privacy",
 'Find distractions and "false bottoms" that stop people reaching your offer.',
 "Validate redesigns with before/after evidence, not guesswork.",
 "Prioritise CRO experiments based on where real attention and friction sit."],
-"Start your free trial", DASH_MOCK, rev=False, alt=False)
+"Start your free trial", DASH_MOCK, rev=False, alt=False,
+more="<p>On their own, heatmaps are interesting. Combined with funnels, session recordings and A/B testing in the same platform, they become a CRO engine: you spot a drop in a funnel step, open the heatmap for that page to see why, watch a few recordings to confirm, then test a fix and measure the lift, without stitching together separate tools or exporting data.</p><p>Because everything lives inside Matomo, the behaviour data and the conversion data share the same definitions and the same 100% sample, so the insight you act on is consistent from first click to checkout.</p>")
 + '<section class="section dark"><div class="wrap" style="max-width:640px;text-align:center;"><div style="width:52px;height:52px;border-radius:14px;background:var(--navy2);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;"><i class="ti ti-lock" style="color:var(--teal-bright);font-size:26px;"></i></div>'
 + '<h2>Heatmaps that don\'t leak your data</h2>'
 + '<p style="margin:14px 0 24px;">Unlike Hotjar or Crazy Egg, Matomo keeps 100% of your behaviour data on your own servers or EU-based cloud. Cookieless tracking, IP anonymisation and a built-in GDPR Manager mean you can often run heatmaps without a consent banner, fully compliant with GDPR, CCPA and HIPAA.</p>'
@@ -750,7 +752,8 @@ hero("Use case · Ecommerce","Ecommerce analytics<br>that grows revenue",
 + CLIENTS
 + frow("The challenge","Traffic is easy, revenue insight is hard",
 "Most ecommerce teams can see how many people visit, but not why carts are abandoned, which products convert, or where revenue leaks in the funnel. And the default tools sample data and ship it to third parties, which is a problem when traffic equals revenue and customers expect privacy.",
-[], "", STORE_MOCK, rev=False, alt=False)
+[], "", STORE_MOCK, rev=False, alt=False,
+more="<p>Most stores run on a generic analytics tool built to count pageviews, not to follow money. It can tell you sessions are up, but not which product pages convert, where buyers abandon the checkout, or which acquisition channel returns revenue rather than just traffic.</p><p>Worse, the default tools sample their data and send it to third-party servers, exactly the wrong trade-off when every visit is potential revenue and customers expect their data to stay private. Teams end up making pricing, merchandising and ad-spend decisions on numbers they can neither fully trust nor fully own.</p>")
 + '<section class="section alt"><div class="wrap"><div class="sec-head"><h2>How Matomo helps you sell more</h2><p>Every report mapped to a revenue question.</p></div><div class="grid g3">'
 + '<div class="card"><div class="ic"><i class="ti ti-shopping-cart"></i></div><h3>Revenue & product reports</h3><p>See sales, revenue, average order value and best/worst performing products in real time.</p></div>'
 + '<div class="card"><div class="ic"><i class="ti ti-filter"></i></div><h3>Cart & checkout funnels</h3><p>Find exactly which step loses buyers, then fix it with heatmaps and session recordings.</p></div>'
