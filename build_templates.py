@@ -176,7 +176,7 @@ nav.site .wrap{display:flex;align-items:center;justify-content:space-between;hei
 .more-content{display:none;}
 .more-content.open{display:block;}
 .more-content p{font-size:16px;color:#3c3d5a;line-height:1.6;margin:0 0 14px;}
-.more-toggle{display:inline-flex;align-items:center;gap:5px;color:var(--teal);font-weight:600;font-size:15px;cursor:pointer;margin-bottom:26px;}
+.more-toggle{display:flex;width:fit-content;align-items:center;gap:5px;color:var(--teal);font-weight:600;font-size:15px;cursor:pointer;margin:4px 0 26px;}
 .more-toggle::after{content:"\\203A";transform:rotate(90deg);display:inline-block;font-size:18px;line-height:1;}
 .more-toggle.open::after{transform:rotate(-90deg);}
 .fbtn{display:inline-block;border:1.5px solid var(--navy);color:var(--navy);border-radius:32px;padding:13px 32px;font-weight:600;font-size:15px;transition:background .14s,color .14s;}
