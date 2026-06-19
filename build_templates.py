@@ -507,6 +507,22 @@ COMPLIANCE_MOCK="""<div class="mock"><div class="mockbar"><em></em><em></em><em>
 <div style="display:flex;flex-wrap:wrap;gap:9px;justify-content:center;max-width:310px;"><span class="cbadge">GDPR</span><span class="cbadge">CCPA</span><span class="cbadge">HIPAA</span><span class="cbadge">CNIL approved</span><span class="cbadge">EU hosting</span><span class="cbadge">Consent-free</span></div>
 </div></div>"""
 
+ECOM_MOCK="""<div class="mock"><div class="mockbar"><em></em><em></em><em></em><span class="url">yourstore.com &middot; ecommerce</span></div>
+<div class="mockbody" style="min-height:auto;">
+<div class="tiles" style="grid-template-columns:repeat(4,1fr);">
+<div class="tile"><span class="tl">Revenue</span><b>$48.2k</b><i class="up">+12%</i></div>
+<div class="tile"><span class="tl">Orders</span><b>790</b><i class="up">+8%</i></div>
+<div class="tile"><span class="tl">Conv. rate</span><b>3.4%</b><i class="up">+0.4%</i></div>
+<div class="tile"><span class="tl">Avg order</span><b>$61</b><i class="down">-1%</i></div>
+</div>
+<svg class="chart" viewBox="0 0 320 110" preserveAspectRatio="none" style="height:110px;"><defs><linearGradient id="ge" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#16b3a3" stop-opacity=".22"/><stop offset="1" stop-color="#16b3a3" stop-opacity="0"/></linearGradient></defs><polygon fill="url(#ge)" points="0,80 40,66 80,72 120,40 160,52 200,28 240,38 280,18 320,30 320,110 0,110"/><polyline fill="none" stroke="#16b3a3" stroke-width="2.5" points="0,80 40,66 80,72 120,40 160,52 200,28 240,38 280,18 320,30"/></svg>
+<div style="margin-top:20px;"><div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted2);margin-bottom:12px;">Top products</div>
+<div style="display:flex;align-items:center;gap:12px;font-size:13px;margin-bottom:10px;"><span style="width:104px;color:var(--navy);font-weight:500;">Classic Tee</span><span style="flex:1;height:8px;border-radius:4px;background:#edeff6;"><span style="display:block;height:100%;width:92%;background:var(--teal-bright);border-radius:4px;"></span></span><b style="color:var(--navy);min-width:50px;text-align:right;">$12.4k</b></div>
+<div style="display:flex;align-items:center;gap:12px;font-size:13px;margin-bottom:10px;"><span style="width:104px;color:var(--navy);font-weight:500;">Hoodie</span><span style="flex:1;height:8px;border-radius:4px;background:#edeff6;"><span style="display:block;height:100%;width:64%;background:var(--teal-bright);border-radius:4px;"></span></span><b style="color:var(--navy);min-width:50px;text-align:right;">$8.6k</b></div>
+<div style="display:flex;align-items:center;gap:12px;font-size:13px;"><span style="width:104px;color:var(--navy);font-weight:500;">Cap</span><span style="flex:1;height:8px;border-radius:4px;background:#edeff6;"><span style="display:block;height:100%;width:41%;background:var(--teal-bright);border-radius:4px;"></span></span><b style="color:var(--navy);min-width:50px;text-align:right;">$5.5k</b></div>
+</div>
+</div></div>"""
+
 STORE_MOCK="""<div class="mock"><div class="mockbar"><em></em><em></em><em></em><span class="url">yourstore.com/product</span></div>
 <div class="mockbody" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center;">
 <div style="height:160px;border-radius:12px;background:linear-gradient(135deg,#16b3a3,#15163a);display:flex;align-items:center;justify-content:center;color:#fff;font-size:34px;"><i class="ti ti-shirt"></i></div>
@@ -754,7 +770,7 @@ more="<p>Most stores run on a generic analytics tool built to count pageviews, n
 + '<div class="card"><div class="ic"><i class="ti ti-filter"></i></div><h3>Cart & checkout funnels</h3><p>Find exactly which step loses buyers, then fix it with heatmaps and session recordings.</p></div>'
 + '<div class="card"><div class="ic"><i class="ti ti-route"></i></div><h3>Full customer journey</h3><p>Attribute revenue to the right channels and campaigns across the whole path to purchase.</p></div>'
 + '</div></div></section>'
-+ shot("Ecommerce overview, revenue, conversion rate, top products")
++ '<section class="section" style="padding-top:0;"><div class="wrap" style="max-width:720px;">'+ECOM_MOCK+'</div></section>'
 + '<section class="section"><div class="wrap prose"><h2>Built for regulated, privacy-conscious commerce</h2>'
 + '<p>Matomo gives you accurate, unsampled ecommerce data with 100% ownership, hosted on your servers or EU-based cloud. Cookieless tracking keeps you compliant with GDPR and reduces consent friction, so you measure more visitors and lose fewer data points than consent-gated tools.</p>'
 + '<p>It works with Shopify, WooCommerce, Magento, PrestaShop and custom stores, and connects ecommerce data to heatmaps, funnels, A/B testing and attribution, one platform for the whole conversion picture.</p>'
