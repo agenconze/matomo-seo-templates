@@ -1,0 +1,380 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ecommerce Analytics, Track Every Sale | Matomo</title><meta name="description" content="Matomo ecommerce analytics shows you revenue, top products, cart abandonment and the full customer journey, with 100% data ownership and no data limits."><meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css" rel="stylesheet">
+<style>
+:root{--navy:#15163a;--navy2:#23234e;--teal:#0f8a7e;--teal-bright:#16b3a3;--teal-soft:#e3f7f3;--ink:#1c1d3e;--muted:#55566f;--muted2:#7d7e93;--line:#ebedf3;--bg:#fbfcff;--bg2:#f4f7fb;}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+a{color:var(--teal);text-decoration:none;}
+h1,h2,h3{font-weight:600;letter-spacing:-.02em;color:var(--navy);line-height:1.2;}
+h1{font-size:46px;}h2{font-size:32px;}h3{font-size:20px;}
+p{font-size:17px;color:var(--muted);}
+.eyebrow{display:inline-block;font-size:13px;font-weight:600;color:var(--teal);background:var(--teal-soft);padding:6px 14px;border-radius:30px;letter-spacing:.01em;}
+.btn{display:inline-block;font-weight:600;font-size:15px;padding:14px 28px;border-radius:10px;cursor:pointer;border:1.5px solid transparent;transition:transform .12s;}
+.btn:active{transform:scale(.98);}
+.btn-navy{background:var(--navy);color:#fff;}
+.btn-teal{background:var(--teal-bright);color:#06231f;}
+.btn-ghost{background:#fff;color:var(--navy);border-color:#dcdce6;}
+.btn-light{background:#fff;color:var(--navy);}
+nav.site{position:sticky;top:0;z-index:50;background:rgba(21,22,58,.97);backdrop-filter:blur(8px);color:#fff;}
+nav.site .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;position:relative;}
+.logo{font-size:22px;font-weight:600;display:flex;align-items:center;gap:8px;letter-spacing:-.02em;}
+.logo .dot{color:var(--teal-bright);}
+.logo-img{height:28px;display:block;}
+.navlinks{display:flex;align-items:center;gap:6px;font-size:14px;}
+.navlinks>a{color:#c2c2d6;padding:0 12px;}
+.navlinks>a:hover{color:#fff;}
+.navitem{position:relative;display:flex;align-items:center;height:64px;}
+.navitem>.top{display:flex;align-items:center;gap:5px;cursor:pointer;color:#c2c2d6;padding:0 12px;}
+.navitem:hover>.top{color:#fff;}
+.navitem .chev{font-size:13px;transition:transform .16s;display:inline-block;}
+.navitem:hover .chev{transform:rotate(180deg);}
+.mega{position:absolute;top:62px;left:0;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 26px 64px -18px rgba(21,22,58,.34);padding:26px 30px;display:flex;flex-wrap:nowrap;gap:30px;width:max-content;max-width:calc(100vw - 40px);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .16s,transform .16s,visibility .16s;z-index:60;}
+.mega.right{left:auto;right:0;}
+.mega.m4{flex-wrap:wrap;width:432px;column-gap:36px;row-gap:24px;}
+.navitem:hover .mega{opacity:1;visibility:visible;transform:translateY(0);}
+.megacol{min-width:160px;}
+.mega.m4 .megacol{min-width:0;width:calc(50% - 18px);}
+.megacol h5{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted2);margin-bottom:12px;}
+.megacol a{display:block;color:var(--ink);font-size:14px;font-weight:500;padding:7px 0;border:none;}
+.megacol a:hover{color:var(--teal);}
+.megacol a.more{color:var(--teal);font-weight:600;}
+.megafeat{background:linear-gradient(135deg,#15163a,#123f3b);border-radius:12px;padding:20px;width:210px;color:#fff;display:flex;flex-direction:column;justify-content:center;}
+.megafeat b{font-size:14px;color:#fff;display:block;margin-bottom:8px;}
+.megafeat .pl{display:inline-block;font-size:11px;background:rgba(255,255,255,.1);color:#dcdcec;border-radius:20px;padding:4px 10px;margin:3px 3px 0 0;}
+.navcta{display:flex;align-items:center;gap:14px;}
+.hero{background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);padding:90px 0 80px;text-align:center;}
+.hero h1{max-width:780px;margin:22px auto 22px;}
+.hero p.lead{font-size:20px;max-width:560px;margin:0 auto 34px;line-height:1.55;}
+.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:18px;}
+.microcopy{font-size:13px;color:var(--muted2);}
+.section{padding:80px 0;}
+.section.alt{background:var(--bg2);}
+.section.dark{background:var(--navy);color:#fff;}
+.section.dark h2,.section.dark h3{color:#fff;}
+.section.dark p{color:#b9b9d0;}
+.center{text-align:center;}
+.sec-head{max-width:620px;margin:0 auto 48px;text-align:center;}
+.sec-head p{font-size:18px;margin-top:12px;}
+.grid{display:grid;gap:22px;}
+.g3{grid-template-columns:repeat(3,1fr);}
+.g2{grid-template-columns:repeat(2,1fr);}
+.g4{grid-template-columns:repeat(4,1fr);}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px;}
+.card .ic{width:48px;height:48px;border-radius:13px;background:var(--teal-soft);display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--teal);margin-bottom:16px;}
+.card h3{font-size:18px;margin-bottom:8px;}
+.card p{font-size:15px;line-height:1.6;}
+.prose{max-width:760px;margin:0 auto;}
+.prose h2{margin:44px 0 16px;}
+.prose h3{margin:32px 0 12px;}
+.prose p{margin-bottom:18px;font-size:17px;color:#3c3d5a;}
+.prose ul{margin:0 0 22px 22px;color:#3c3d5a;font-size:17px;}
+.prose li{margin-bottom:8px;}
+.shot{border-radius:18px;border:1px solid var(--line);background:var(--bg2);height:360px;display:flex;align-items:center;justify-content:center;color:#aeb0c0;gap:8px;font-size:15px;}
+.steps{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:22px;}
+.step{display:flex;gap:18px;align-items:flex-start;}
+.step .n{flex:none;width:36px;height:36px;border-radius:50%;background:var(--teal-soft);color:var(--teal);font-weight:600;display:flex;align-items:center;justify-content:center;}
+.step p{margin:0;font-size:15px;}
+.pill{display:inline-block;background:var(--navy2);border:1px solid #34345e;color:#dcdcec;padding:8px 16px;border-radius:30px;font-size:13px;margin:4px;}
+.cmp2-wrap{max-width:880px;margin:0 auto;}
+.cmp2{width:100%;border-collapse:separate;border-spacing:0;}
+.cmp2 th,.cmp2 td{padding:16px 26px;text-align:left;vertical-align:middle;}
+.cmp2 .col-crit{width:50%;}
+.cmp2 .col-mat,.cmp2 .col-comp{text-align:center;}
+.cmp2 thead th{font-size:16px;font-weight:600;color:var(--navy);padding-top:20px;padding-bottom:20px;}
+.cmp2 thead .col-comp{color:var(--muted);font-weight:600;}
+.cmp2 thead .col-mat{vertical-align:top;}
+.cmp2 .mat-logo{display:block;font-size:19px;font-weight:700;color:var(--navy);letter-spacing:-.02em;}
+.cmp2 .rec{display:inline-block;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#06231f;background:var(--teal-bright);border-radius:20px;padding:3px 11px;margin-top:7px;}
+.cmp2 td.col-mat,.cmp2 th.col-mat{background:var(--teal-soft);}
+.cmp2 thead th.col-mat{border-top-left-radius:16px;border-top-right-radius:16px;}
+.cmp2 tbody tr:last-child td.col-mat{border-bottom-left-radius:16px;border-bottom-right-radius:16px;}
+.cmp2 tbody td{font-size:15.5px;color:#33344f;border-bottom:1px solid var(--line);}
+.cmp2 tbody td.col-crit{font-weight:500;}
+.cmp2 tbody tr:last-child td{border-bottom:none;}
+.ck{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;}
+.ck.yes{background:var(--teal-bright);box-shadow:0 2px 7px rgba(15,138,126,.32);}
+.ck.no{background:#dfe2ee;}
+.pp{display:inline-block;font-size:12px;font-weight:600;color:#9a6c12;background:#fbeecb;border-radius:20px;padding:5px 13px;}
+.yes{color:var(--teal);font-weight:600;}.no{color:#c45b54;font-weight:600;}.part{color:#c99a3a;font-size:13px;}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.stat{background:var(--bg2);border-radius:14px;padding:26px;text-align:center;}
+.stat .big{font-size:34px;font-weight:600;color:var(--teal);letter-spacing:-.02em;}
+.stat p{font-size:14px;margin-top:6px;}
+.callout{background:var(--teal-soft);border-radius:20px;padding:56px 40px;text-align:center;}
+.callout h2{margin-bottom:12px;}.callout p{color:#3f6b62;max-width:420px;margin:0 auto 26px;font-size:17px;}
+.faq{max-width:760px;margin:0 auto;}
+.faq details{border:1px solid var(--line);border-radius:12px;margin-bottom:12px;padding:18px 22px;}
+.faq summary{font-size:16px;font-weight:600;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq p{margin-top:12px;font-size:15px;color:#3c3d5a;}
+.quote{border-left:3px solid var(--teal-bright);padding:6px 0 6px 22px;max-width:680px;margin:0 auto;}
+.quote p{font-size:20px;font-style:italic;color:#2b2c4d;line-height:1.55;font-family:Georgia,serif;margin-bottom:10px;}
+.quote .who{font-size:14px;color:var(--muted2);font-style:normal;}
+.related{background:var(--bg2);border-radius:14px;padding:22px 26px;max-width:760px;margin:30px auto 0;font-size:15px;color:var(--muted);}
+.toc{background:var(--bg2);border-radius:14px;padding:22px 26px;max-width:760px;margin:0 auto 36px;}
+.toc strong{display:block;margin-bottom:8px;color:var(--navy);}
+.toc a{display:block;padding:4px 0;font-size:15px;}
+.ratings{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:26px;}
+.rb{display:flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);border-radius:30px;padding:8px 17px;font-size:15px;font-weight:600;color:var(--navy);}
+.rb .dot{width:18px;height:18px;border-radius:5px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;color:#fff;font-weight:700;}
+.rb .star{color:#f5a623;font-size:14px;}
+.rb small{font-size:11px;color:var(--muted2);font-weight:600;text-transform:uppercase;letter-spacing:.03em;}
+.clients{background:var(--navy);padding:36px 0 38px;}
+.clients .lbl{text-align:center;color:#9fa0bb;font-size:14px;margin-bottom:24px;}
+.clients .lbl b{color:#fff;font-weight:600;}
+.clients .row{display:flex;align-items:center;justify-content:center;gap:46px;flex-wrap:wrap;}
+.clients .lg{color:#c9cadd;font-size:19px;font-weight:600;letter-spacing:.05em;opacity:.82;}
+.learn{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.lcard{border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;background:#fff;transition:transform .12s,box-shadow .12s;}
+.lcard:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(21,22,58,.09);}
+.lcard .img{height:172px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:34px;}
+.lcard .pad{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1;}
+.lcard .lt{font-size:12px;font-weight:600;color:var(--teal);text-transform:uppercase;letter-spacing:.04em;margin-bottom:9px;}
+.lcard h3{font-size:19px;margin-bottom:9px;line-height:1.28;}
+.lcard p{font-size:14.5px;color:var(--muted);line-height:1.6;flex:1;margin:0;}
+.lcard .rl{margin-top:16px;font-weight:600;font-size:14.5px;color:var(--navy);display:inline-flex;align-items:center;gap:6px;}
+@media(max-width:860px){.learn{grid-template-columns:1fr 1fr;}}@media(max-width:560px){.learn{grid-template-columns:1fr;}}
+.vsband{background:linear-gradient(130deg,#15163a 0%,#123f3b 100%);color:#fff;padding:88px 0;position:relative;overflow:hidden;}
+.vsband::before{content:"VS";position:absolute;top:-30px;right:40px;font-size:220px;font-weight:800;color:rgba(255,255,255,.04);letter-spacing:-.05em;line-height:1;pointer-events:none;}
+.vsband .head{text-align:center;max-width:660px;margin:0 auto 46px;position:relative;}
+.vsband .eyebrow{background:rgba(22,179,163,.18);color:var(--teal-bright);}
+.vsband h2{color:#fff;font-size:36px;margin-top:18px;}
+.vsband .head p{color:#c4c5dd;font-size:18px;margin-top:14px;}
+.vsgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative;}
+.vscard{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:24px 22px;display:flex;flex-direction:column;gap:13px;transition:transform .14s,background .14s,border-color .14s;}
+.vscard:hover{transform:translateY(-4px);background:rgba(255,255,255,.1);border-color:rgba(22,179,163,.5);}
+.vsmatch{display:flex;align-items:center;gap:9px;font-size:16px;font-weight:600;}
+.vsmatch .m{color:var(--teal-bright);}
+.vsmatch .x{font-size:11px;font-weight:700;letter-spacing:.1em;color:#7d7e9a;background:rgba(255,255,255,.08);border-radius:6px;padding:3px 7px;}
+.vsmatch .o{color:#dcdcec;}
+.vscard p{color:#a9aac6;font-size:14px;line-height:1.55;margin:0;flex:1;}
+.vscard .go{color:var(--teal-bright);font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:6px;}
+@media(max-width:860px){.vsgrid{grid-template-columns:1fr 1fr;}.vsband h2{font-size:28px;}}
+@media(max-width:560px){.vsgrid{grid-template-columns:1fr;}}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;max-width:1120px;margin:0 auto;}
+.frow.rev .ftext{order:2;}
+.feyebrow{font-size:15px;color:var(--muted2);font-weight:500;margin-bottom:14px;}
+.ftext h2{font-size:40px;line-height:1.12;margin-bottom:20px;}
+.ftext>p{font-size:17px;color:var(--muted);margin-bottom:24px;line-height:1.6;}
+.flist{list-style:none;margin:0 0 30px;padding:0;}
+.flist li{position:relative;padding-left:28px;margin-bottom:15px;font-size:16px;color:#3c3d5a;line-height:1.55;}
+.flist li::before{content:"";position:absolute;left:3px;top:8px;width:8px;height:8px;border-radius:50%;background:var(--teal-bright);}
+.fbtn{display:inline-block;border:1.5px solid var(--navy);color:var(--navy);border-radius:32px;padding:13px 32px;font-weight:600;font-size:15px;transition:background .14s,color .14s;}
+.fbtn:hover{background:var(--navy);color:#fff;}
+.mock{border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 24px 60px -16px rgba(21,22,58,.28);background:#fff;}
+.mockbar{display:flex;align-items:center;gap:7px;padding:12px 15px;background:var(--bg2);border-bottom:1px solid var(--line);}
+.mockbar em{width:11px;height:11px;border-radius:50%;display:inline-block;font-style:normal;}
+.mockbar em:nth-child(1){background:#ff5f57;}.mockbar em:nth-child(2){background:#febc2e;}.mockbar em:nth-child(3){background:#28c840;}
+.mockbar .url{margin-left:12px;font-size:12px;color:var(--muted2);background:#fff;border:1px solid var(--line);border-radius:7px;padding:4px 14px;flex:1;}
+.mockbody{position:relative;padding:26px 28px;min-height:300px;}
+.hm .bar{height:34px;border-radius:8px;background:#e9ebf3;margin-bottom:22px;}
+.hm .ln{height:11px;border-radius:6px;background:#edeff6;margin-bottom:13px;}
+.hm .ln.s{width:52%;}.hm .ln.m{width:78%;}.hm .ln.l{width:92%;}
+.hm .cta{display:inline-block;margin-top:10px;background:#dde1ee;border-radius:9px;padding:15px 46px;}
+.blob{position:absolute;border-radius:50%;pointer-events:none;mix-blend-mode:multiply;}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px;}
+.tile{border:1px solid var(--line);border-radius:10px;padding:12px 13px;}
+.tile span.tl{font-size:10.5px;color:var(--muted2);display:block;margin-bottom:6px;}
+.tile b{font-size:19px;color:var(--navy);}
+.tile i{font-size:11px;font-style:normal;margin-left:5px;}
+.tile i.up{color:#1f9d6b;}.tile i.down{color:#d35b54;}
+.chart{width:100%;height:150px;display:block;}
+@media(max-width:860px){.frow{grid-template-columns:1fr;gap:36px;}.frow.rev .ftext{order:0;}.ftext h2{font-size:30px;}}
+.tmgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.tm{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 26px 24px;display:flex;flex-direction:column;box-shadow:0 6px 20px -12px rgba(21,22,58,.16);}
+.tm .stars{color:#f5a623;font-size:15px;letter-spacing:2px;margin-bottom:13px;}
+.tm .q{font-size:15px;color:#33344f;line-height:1.62;flex:1;margin:0 0 18px;}
+.tm .who{display:flex;align-items:center;gap:12px;}
+.tm .who .av{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#16b3a3,#15163a);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:15px;flex:none;}
+.tm .who b{display:block;font-size:14px;color:var(--navy);}
+.tm .who span{font-size:12.5px;color:var(--muted2);}
+@media(max-width:860px){.tmgrid{grid-template-columns:1fr;}}
+.mlgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.ml{display:flex;flex-direction:column;gap:9px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;transition:transform .12s,border-color .12s;}
+.ml:hover{transform:translateY(-3px);border-color:var(--teal-bright);}
+.ml .mic{width:40px;height:40px;border-radius:11px;background:var(--teal-soft);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:21px;}
+.ml h3{font-size:15.5px;margin:0;}
+.ml p{font-size:13px;color:var(--muted);margin:0;line-height:1.5;flex:1;}
+.ml .go{font-size:13px;font-weight:600;color:var(--teal);display:inline-flex;align-items:center;gap:5px;margin-top:3px;}
+@media(max-width:860px){.mlgrid{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.mlgrid{grid-template-columns:1fr;}}
+.cmp2 tr.cat td{background:var(--bg2);font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted2);padding-top:13px;padding-bottom:13px;}
+.cmp2 tr.cat td.col-mat{background:#d6f3ee;}
+.byline{display:flex;align-items:center;gap:13px;margin-top:24px;}
+.byline .avatar{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#16b3a3,#15163a);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:16px;flex:none;}
+.byline .bmeta{font-size:14.5px;line-height:1.45;}
+.byline .bmeta b{color:var(--navy);font-weight:600;}
+.byline .bmeta span{color:var(--muted2);display:block;font-size:13px;}
+.article{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:56px;align-items:start;max-width:1080px;margin:0 auto;}
+.asidebar{position:sticky;top:88px;display:flex;flex-direction:column;gap:18px;}
+.inbrief{background:linear-gradient(135deg,#15163a,#123f3b);color:#fff;border-radius:18px;padding:30px 32px;margin-bottom:36px;}
+.inbrief h3{color:#fff;font-size:14px;text-transform:uppercase;letter-spacing:.07em;display:flex;align-items:center;gap:9px;margin-bottom:18px;}
+.inbrief h3 i{color:var(--teal-bright);font-size:18px;}
+.inbrief ul{list-style:none;margin:0;padding:0;}
+.inbrief li{position:relative;padding-left:26px;margin-bottom:13px;font-size:15.5px;color:#dde0f0;line-height:1.55;}
+.inbrief li::before{content:"";position:absolute;left:3px;top:8px;width:7px;height:7px;border-radius:50%;background:var(--teal-bright);}
+.inbrief li:last-child{margin-bottom:0;}
+.sidecta{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px 22px;box-shadow:0 10px 30px -14px rgba(21,22,58,.18);}
+.sidecta.dark{background:var(--navy);border:none;color:#fff;}
+.sidecta .st{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--teal);margin-bottom:9px;}
+.sidecta.dark .st{color:var(--teal-bright);}
+.sidecta h4{font-size:19px;color:var(--navy);margin-bottom:8px;line-height:1.25;}
+.sidecta.dark h4{color:#fff;}
+.sidecta p{font-size:14px;color:var(--muted);margin-bottom:16px;line-height:1.55;}
+.sidecta.dark p{color:#b9b9d0;}
+.sidecta .btn{display:block;width:100%;text-align:center;padding:12px 0;}
+.sideform{display:flex;flex-direction:column;gap:9px;}
+.sideform input{border:1px solid var(--line);border-radius:9px;padding:11px 13px;font-size:14px;font-family:inherit;color:var(--ink);}
+.sideform input:focus{outline:none;border-color:var(--teal-bright);}
+.sidelist{list-style:none;margin:0;padding:0;}
+.sidelist li{border-top:1px solid var(--line);}
+.sidelist li:first-child{border-top:none;}
+.sidelist a{display:flex;align-items:center;gap:10px;padding:11px 0;font-size:14px;color:var(--navy);font-weight:500;}
+.sidelist a i{color:var(--teal);font-size:18px;}
+.authorbox{display:flex;gap:22px;align-items:flex-start;background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:30px 32px;max-width:700px;margin:0;}
+.authorbox .avatar{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#16b3a3,#15163a);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:26px;flex:none;}
+.authorbox .ainfo h4{font-size:18px;margin-bottom:3px;}
+.authorbox .ainfo .role{font-size:13px;color:var(--teal);font-weight:600;margin-bottom:11px;}
+.authorbox .ainfo p{font-size:14.5px;color:var(--muted);line-height:1.6;margin-bottom:15px;}
+.authorbox .social{display:flex;gap:10px;}
+.authorbox .social a{width:34px;height:34px;border-radius:9px;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--navy);font-size:17px;}
+.authorbox .social a:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
+@media(max-width:960px){.article{grid-template-columns:1fr;}.asidebar{position:static;flex-direction:row;flex-wrap:wrap;}.asidebar>*{flex:1;min-width:240px;}}
+@media(max-width:560px){.authorbox{flex-direction:column;}.asidebar{flex-direction:column;}}
+.anno{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--teal-bright);color:#fff;font-size:12px;font-weight:700;font-style:italic;font-family:Georgia,serif;cursor:pointer;vertical-align:middle;margin-left:8px;border:none;box-shadow:0 2px 6px rgba(15,138,126,.45);transition:transform .12s;line-height:1;padding:0;}
+.anno:hover{transform:scale(1.18);}
+.anno-overlay{position:fixed;inset:0;background:rgba(15,16,40,.5);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);z-index:300;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .22s;}
+.anno-overlay.show{opacity:1;pointer-events:auto;}
+.anno-card{background:#fff;border-radius:18px;max-width:450px;width:100%;padding:32px 34px;box-shadow:0 34px 90px rgba(21,22,58,.42);transform:translateY(12px) scale(.98);transition:transform .22s;position:relative;border-top:4px solid var(--teal-bright);}
+.anno-overlay.show .anno-card{transform:translateY(0) scale(1);}
+.anno-card .tag{display:inline-flex;align-items:center;gap:7px;font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--teal);margin-bottom:13px;}
+.anno-card h4{font-size:20px;color:var(--navy);margin-bottom:11px;line-height:1.25;}
+.anno-card p{font-size:15px;color:var(--muted);line-height:1.62;margin:0;}
+.anno-card .x{position:absolute;top:16px;right:18px;width:30px;height:30px;border-radius:50%;border:none;background:var(--bg2);color:var(--muted);cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;line-height:1;}
+.anno-card .x:hover{background:var(--line);color:var(--navy);}
+.anno-hint{position:fixed;left:18px;bottom:18px;z-index:150;background:#fff;border:1px solid var(--line);box-shadow:0 8px 26px rgba(21,22,58,.15);border-radius:30px;padding:9px 17px 9px 11px;font-size:13px;color:var(--muted);display:flex;align-items:center;gap:9px;}
+.anno-hint b{display:inline-flex;width:20px;height:20px;border-radius:50%;background:var(--teal-bright);color:#fff;align-items:center;justify-content:center;font-size:12px;font-family:Georgia,serif;font-weight:700;font-style:italic;}
+@media(max-width:560px){.anno-hint{display:none;}}
+.backhub{position:fixed;right:18px;bottom:18px;z-index:150;background:var(--navy);color:#fff;border:none;box-shadow:0 8px 26px rgba(21,22,58,.26);border-radius:30px;padding:10px 18px;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:7px;}
+.backhub:hover{background:var(--navy2);color:#fff;}
+@media(max-width:560px){.backhub{padding:9px 14px;}}
+.cbadge{display:inline-block;font-size:12.5px;font-weight:600;color:var(--teal);background:#fff;border:1px solid #bfeee8;border-radius:20px;padding:6px 14px;}
+.ownrow{display:flex;align-items:center;gap:14px;border-radius:12px;padding:15px 17px;margin-bottom:12px;}
+.ownrow:last-child{margin-bottom:0;}
+.ownrow.good{background:var(--teal-soft);border:1px solid #bfeee8;}
+.ownrow.badrow{background:#f4f5f9;border:1px solid var(--line);}
+.ownrow .oic{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex:none;}
+.ownrow.good .oic{background:var(--teal-bright);color:#fff;}
+.ownrow.badrow .oic{background:#dfe2ee;color:#8a8ca6;}
+.ownrow b{display:block;font-size:15px;color:var(--navy);}
+.ownrow .od{font-size:13px;color:var(--muted);}
+.ownrow .otag{margin-left:auto;font-size:11.5px;font-weight:600;border-radius:20px;padding:5px 12px;white-space:nowrap;}
+.ownrow.good .otag{background:var(--teal-bright);color:#06231f;}
+.ownrow.badrow .otag{background:#e2e4ee;color:#7d7e93;}
+.bcat{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-bottom:50px;}
+.bcat a{font-size:13.5px;font-weight:500;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:30px;padding:8px 16px;cursor:pointer;transition:background .12s,color .12s,border-color .12s;}
+.bcat a.active,.bcat a:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
+.feat{display:grid;grid-template-columns:1.05fr 1fr;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;margin-bottom:56px;box-shadow:0 14px 40px -18px rgba(21,22,58,.2);}
+.feat .img{min-height:340px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:46px;}
+.feat .fbody{padding:42px 44px;display:flex;flex-direction:column;justify-content:center;}
+.feat .ftag{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--teal);margin-bottom:13px;}
+.feat h2{font-size:29px;line-height:1.18;margin-bottom:14px;}
+.feat .fx{font-size:16px;color:var(--muted);margin-bottom:22px;line-height:1.6;}
+.pmeta{display:flex;align-items:center;gap:11px;font-size:13px;color:var(--muted2);}
+.pmeta .av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#16b3a3,#15163a);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px;flex:none;}
+.pmeta b{color:var(--navy);font-weight:600;}
+.postgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+.post{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:transform .12s,box-shadow .12s;}
+.post:hover{transform:translateY(-4px);box-shadow:0 16px 38px rgba(21,22,58,.11);}
+.post .img{height:152px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:30px;}
+.post .pbody{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1;}
+.post .ptag{font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--teal);margin-bottom:9px;}
+.post h3{font-size:17px;line-height:1.3;margin-bottom:9px;}
+.post p{font-size:13.5px;color:var(--muted);line-height:1.55;flex:1;margin-bottom:16px;}
+@media(max-width:860px){.feat{grid-template-columns:1fr;}.feat .img{min-height:200px;}.feat .fbody{padding:30px 28px;}.postgrid{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.postgrid{grid-template-columns:1fr;}}
+.cmpcat{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted2);margin:40px 0 18px;}
+.cmpcat.first{margin-top:0;}
+.cmpgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.cmpc{display:flex;flex-direction:column;gap:9px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 24px;transition:transform .12s,border-color .12s,box-shadow .12s;}
+.cmpc:hover{transform:translateY(-3px);border-color:var(--teal-bright);box-shadow:0 12px 30px rgba(21,22,58,.09);}
+.cmpc .vs{font-size:17px;font-weight:600;color:var(--navy);letter-spacing:-.01em;}
+.cmpc .vs span{color:var(--teal);font-weight:600;}
+.cmpc p{font-size:13.5px;color:var(--muted);margin:0;line-height:1.55;flex:1;}
+.cmpc .go{font-size:13.5px;font-weight:600;color:var(--teal);display:inline-flex;align-items:center;gap:6px;margin-top:3px;}
+@media(max-width:860px){.cmpgrid{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.cmpgrid{grid-template-columns:1fr;}}
+.fhnav{position:sticky;top:64px;z-index:40;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+.fhnav .row{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;padding:13px 24px;max-width:1120px;margin:0 auto;}
+.fhnav a{font-size:13.5px;font-weight:500;color:var(--muted);padding:7px 15px;border-radius:30px;}
+.fhnav a:hover{background:var(--bg2);color:var(--navy);}
+.fhcat{display:flex;align-items:baseline;gap:11px;margin:0 0 22px;}
+.fhcat h2{font-size:24px;}
+.fhcat .n{font-size:13px;color:var(--muted2);font-weight:600;}
+.fhgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:54px;}
+.fhcard{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;transition:transform .12s,border-color .12s,box-shadow .12s;}
+.fhcard:hover{transform:translateY(-3px);border-color:var(--teal-bright);box-shadow:0 12px 30px rgba(21,22,58,.09);}
+.fhcard .ic{flex:none;width:42px;height:42px;border-radius:11px;background:var(--teal-soft);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:21px;}
+.fhcard h3{font-size:15.5px;margin-bottom:4px;color:var(--navy);}
+.fhcard p{font-size:13px;color:var(--muted);line-height:1.5;margin:0;}
+@media(max-width:860px){.fhgrid{grid-template-columns:1fr 1fr;}.fhnav{display:none;}}
+@media(max-width:560px){.fhgrid{grid-template-columns:1fr;}}
+footer.site{background:var(--navy);color:#b9b9d0;padding:56px 0 28px;}
+footer.site .cols{display:grid;grid-template-columns:repeat(5,1fr);gap:26px;font-size:13px;line-height:2;}
+footer.site .cols a{display:block;color:#b9b9d0;}
+footer.site h4{color:#fff;font-size:14px;font-weight:600;margin-bottom:8px;}
+footer.site .base{border-top:1px solid #2c2c54;margin-top:36px;padding-top:20px;text-align:center;}
+footer.site .base .tag{font-style:italic;color:#9596b0;margin-bottom:4px;}
+footer.site .base .cp{font-size:12px;color:#6a6b85;}
+@media(max-width:860px){h1{font-size:34px;}h2{font-size:26px;}.g3,.g4,.stats{grid-template-columns:1fr 1fr;}footer.site .cols{grid-template-columns:1fr 1fr;}.navlinks{display:none;}}
+@media(max-width:560px){.g2,.g3,.g4,.stats,footer.site .cols{grid-template-columns:1fr;}.hero{padding:60px 0 50px;}}
+</style></head><body><nav class="site"><div class="wrap">
+<a class="logo" href="index.html"><img class="logo-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATgAAAA8CAMAAADFR1b6AAAAk1BMVEUAAAAAr7////8At7////8Atb////8As7////8AsrwAsr////8At7////8Atb0Atb////////8AtL0AtL////8Atb////8As70As7////8AtL////8As73///8Atb0Atb////8AtL7///8Atb0Atb////8AtL4AtL7///8AtL7///8AtL7///8AtL7///8AtL7////xb+ouAAAAL3RSTlMAEBAgIDAwQEBQUFBfX2BgYG9wcHB/f4CAgI+PkJCfn5+goK+vr7C/v8/P39/v77YoywAAAAceSURBVHja7VvZdqM4EAVMjNp0B5IQMyTGJs64kQ2W+f+vG3YtVcJbn3TOGdVTXIAoXdVyVSKWZcSIESNGjBgx8o1lFjzHz4sZoo9RvZFG7Nfi1Mn+8RK9kU5+HE9cikeNfmGAUuTtJMvrGb0RCZ/ic50XIkI6vZFOXltMNl77w/tofz1r9CZaharZAHLkiLy0v2cavW0AG2TTAPIgKILW0awc1b8ZwESHiyXVqlE9avQPX20g2dHwOwLXAFQopG4gIZg+/2L7nqpalt8QuH/buJQl6IFbKfqPv1Afyga4yvl+wO1rLDxVmXfAeYh3noovrQ9ui1tFvh9wBZa3vA64GaqODXCNHBGALOtzArgvpSTf2+M8WGuPWAX90TnixgDXFwck+GIsKDcnPPfB6c7JXFUR4mrvd6SrLuF/hR1wEWnFmXrsAiuaB5zpBy4uQzGkHVrqMbSYpikJyVg7WRoOk3Ii2qrYDmNk5L2rnP0DDq2qsp2wSytFygg+xmjooPQPWLHsxiszzH8HG6tDNr8IOG/YmmKU5BFualdnKAkRZ7tsp/TEhKmr0M3F+8uasGXtH82DWQWFYK8pAc8jpXrVWYpWqH4qXa2oewlyuSbf592WlctDl9/2k5TkSXERF/jN+9T91c7pZtCsOoJblXbzfK/Ae0R5h1aUsmqpxbm6lHF7GorR6guOnHfsCq03RUmW6kSZr9pUZcL90Kko9ywtcM4BXvg1NWoJkJGgeYLDHSZz3Sx4W6/jQnUtiZK8dlfst5HD5XpKsqwukXedZyghSRF9mwVL7IlfV1qxnMJtErnHXGjuIvl+1m9Z8/Xbei/swWbaLolbXSb+lMUcOGcH/DeyNLmvvjbk9PBCK8i01e86b8vltrinoSSirAQ9RkkGF2GJT/ytHIE1oYgGT2Hdao55h6U1q3D49XFWc+KLdKTjCiMwLA3rQUe/PEi72zo+aytCGXtaP5AM16lyf21jY3apLq8sP48KKLmGknA5Pp/pkpAhDym41FPsVzfpf0dSKtqNUZHo3IGAbX9VJf1j43siyeESkPdLxQoiBfaBKEaUWLD+7LH4XK/zHh4dJRlgi225GQxdLpMsFpEba14kLnYpFkolzPTAhUpk1iHdOzcT3Z5bwUDlTcUq1Vux5W/wpYVA0lfezz0oThOU5PTPer1+8UBLpdB0gEroggmIZofbV0pjpGeB6yuqyAeHatHeJcet4EGhaikT1kGyIpJjWd0CcEphf05Rkkv1DlwnpjjciOWcYyQz4p7G6YFzIacZR035nyGwi0FkXB4mLpasHazrK887n6AkmB6jJHOYjrbq6g+zCEfrGF5gtMD56K6fjm7j85WRfZTiph4w5yKa8tBMew9jV0dJNpqTimf0bS4ATrKKA1ei8RCdAS5B4e7DkYceRDXDey5oOnPwJDdDcruOYqw0+g8I9LXAMSTmxolrgduicIdjbF0JnKZtVYKyNbTVCixr5ZpsptPbdwFX/UHg+Lv/JHAZQmx/Y51gjJIcYZekFdghvi1UrwUuRUrxGODWrcCpPRumsoEx/FZooUUoSaE5oIGd49uAOyjjpmeAi9CCl42Z79ocx7CgdPEcF2PA7TUHMcWE/j7gdigE5RngSIU5Ay801wKH1vYQD+Bnbagi1OM0ob8vVCMMAh8nwL5K9JiDdGWiG4BLEOdyS7R0t8XhqOgeNFvW/qAQUBIPjnEtcATsnYSOEZHvh3uPDNKy9tXXAodZscPrlmUjFGOj6ZJM6X/fB9wAgdC95R1KouyOXLCPy0afI0yY6LXAjVaMb3SyCttNDARYzvcttXspIDFu9ZAdt/rgTuCGHT1bOqCTQZRiIaBL5eMLkkmthKuBI2Nn2u0ObcpK43B9/ImtSLto2+QLVT9r9Xagfo3Z6a07gRNavDRJkowhXUY+L7rLslBqd1SM7nYc68S6Cbixr1BXeJodmPZAZ+x6cIRm+75yqvqiJ3e5jFynD+4GzmVn27PDGGKzEm/xHqwbgcNOMHR9zK6t1H9ebr8eh2+6MP1eo99YdwNnzdl54OQThkjud8JzruuBAydgKPntZdGzjHw9HCd051k6fQD0e/sPAGfNgc2QQknoZiILFpvijnUzcJYLfI5pv2VcFHLnfDgHXCgt9b1Gn8O9hAMJbQSzbCnj4m6V08S+z+NCWiUirjgJixRqUsLNSAq7fq4Fe/ZnT6RnH9IxjC3nu0FinR4bMgEu3oYZcwHDzfCjf9YcI/jIFmg8YOHnAOFBfkz28hDwWTnXR+pL3C33a3rmEx/vo/ei40oiaUE+HjPMcP1K859dIVU/DnG3NFNWz6dUyR9umFJKd2n/DUgIbqhXwG9uoRJCw2PqZzS1FQRYkbrgJnUn6qe7ergsuuT7B2/xEgTwc2jbC+IXVP8Sx8GXfz5txIgRI0aMGDHyf5f/AH6KB+SqNfOVAAAAAElFTkSuQmCC" alt="Matomo"></a>
+<div class="navlinks">
+<div class="navitem"><span class="top">Product <i class="ti ti-chevron-down chev"></i></span><div class="mega">
+<div class="megacol"><h5>Measure</h5><a href="#">Web analytics</a><a href="#">Custom reports</a><a href="#">Real-time data</a></div>
+<div class="megacol"><h5>Understand behaviour</h5><a href="1-feature-landing-heatmaps.html">Heatmaps</a><a href="#">Session recordings</a><a href="#">Form analytics</a></div>
+<div class="megacol"><h5>Optimise & convert</h5><a href="#">A/B testing</a><a href="#">Funnel analysis</a><a href="#">Goals & conversions</a></div>
+<div class="megacol"><h5>Collect</h5><a href="#">Tag Manager</a><a href="5-use-case-ecommerce.html">Ecommerce tracking</a><a href="#">Server-side tracking</a><a class="more" href="9-features-hub.html">See all features</a></div>
+</div></div>
+<div class="navitem"><span class="top">Solutions <i class="ti ti-chevron-down chev"></i></span><div class="mega">
+<div class="megacol"><h5>By use case</h5><a href="5-use-case-ecommerce.html">Ecommerce</a><a href="#">Marketing & CRO</a><a href="#">Product analytics</a><a href="#">SEO analytics</a></div>
+<div class="megacol"><h5>By industry</h5><a href="#">Healthcare</a><a href="#">Finance</a><a href="#">Government</a><a href="#">Agencies</a></div>
+<div class="megacol"><h5>By platform</h5><a href="4-cms-landing-wordpress.html">WordPress</a><a href="#">Shopify</a><a href="#">Drupal</a><a href="#">Joomla, Wix & more</a></div>
+</div></div>
+<div class="navitem"><span class="top">Resources <i class="ti ti-chevron-down chev"></i></span><div class="mega right">
+<div class="megacol"><h5>Learn</h5><a href="7-blog-index.html">Blog</a><a href="#">Guides</a><a href="6-blog-pillar-bounce-rate.html">Glossary</a><a href="#">Newsletter</a></div>
+<div class="megacol"><h5>Support</h5><a href="#">Help center</a><a href="#">FAQ</a><a href="#">Documentation</a><a href="#">Case studies</a></div>
+<div class="megacol"><h5>Compare</h5><a href="2-vs-page-google-analytics.html">vs Google Analytics</a><a href="#">vs Piwik PRO</a><a href="#">vs Plausible</a><a class="more" href="8-compare-hub.html">See all comparisons</a></div>
+</div></div>
+<a href="#">Pricing</a>
+</div>
+<div class="navcta"><a style="font-size:14px;color:#c2c2d6;">Log in</a><a class="btn btn-teal" style="padding:9px 16px;">Try it for free</a></div>
+</div></nav><section class="hero"><div class="wrap">
+<span class="eyebrow">Use case · Ecommerce</span><h1>Ecommerce analytics<br>that grows revenue<button class="anno" type="button" data-title="Optimised landing header" data-note="The whole header is engineered to rank <b>and</b> convert at once: a <b>keyword-first, SEO-optimised H1</b> targeting the page's main search term, a primary <b>CTA</b> to start the trial, and <b>review ratings</b> for instant social proof, all above the fold." aria-label="Optimised landing header">i</button></h1><p class="lead">Track every sale, product and abandoned cart, and see the full journey from first visit to checkout, with data you fully own.</p>
+<div class="hero-cta"><a class="btn btn-navy">Start your free trial</a><a class="btn btn-ghost">Book a demo</a></div>
+<p class="microcopy">No credit card · GDPR-ready · For Shopify, WooCommerce & more</p><div class="ratings">
+<span class="rb"><span class="dot" style="background:#ff4f42;">C</span>Capterra <span class="star">★</span>4.7 <small>· 62 reviews</small></span>
+<span class="rb"><span class="dot" style="background:#ff492c;">G2</span>G2 <span class="star">★</span>4.2</span>
+<span class="rb"><span class="dot" style="background:#1f8fe0;">G</span>GetApp <span class="star">★</span>4.7</span><button class="anno" type="button" data-title="Review ratings &middot; E-E-A-T" data-note="Showing real ratings from G2, Capterra and GetApp is a <b>trust and reassurance</b> signal that reinforces <b>E-E-A-T</b> (experience, expertise, authoritativeness, trust), which Google rewards and which lifts conversion rate." aria-label="Review ratings &middot; E-E-A-T">i</button>
+</div></div></section><section class="clients"><div class="wrap">
+<p class="lbl">Trusted by <b>1 million</b> websites and organisations <b>worldwide</b><button class="anno" type="button" data-title="Client logos &middot; trust" data-note="Recognisable client logos are a <b>credibility (E-E-A-T)</b> signal. They reassure visitors that Matomo is trusted by major organisations, which reduces bounce and increases conversions." aria-label="Client logos &middot; trust">i</button></p>
+<div class="row"><span class="lg">EUROPEAN COMMISSION</span><span class="lg">UNITED NATIONS</span><span class="lg">NHS</span><span class="lg">AMNESTY INTERNATIONAL</span><span class="lg">AHREFS</span></div>
+</div></section><section class="section"><div class="wrap prose"><h2>The challenge: traffic is easy, revenue insight is hard</h2><p>Most ecommerce teams can see how many people visit, but not why carts are abandoned, which products convert, or where revenue leaks in the funnel. And the default tools sample data and ship it to third parties, which is a problem when traffic equals revenue and customers expect privacy.</p></div></section><section class="section alt"><div class="wrap"><div class="sec-head"><h2>How Matomo helps you sell more</h2><p>Every report mapped to a revenue question.</p></div><div class="grid g3"><div class="card"><div class="ic"><i class="ti ti-shopping-cart"></i></div><h3>Revenue & product reports</h3><p>See sales, revenue, average order value and best/worst performing products in real time.</p></div><div class="card"><div class="ic"><i class="ti ti-filter"></i></div><h3>Cart & checkout funnels</h3><p>Find exactly which step loses buyers, then fix it with heatmaps and session recordings.</p></div><div class="card"><div class="ic"><i class="ti ti-route"></i></div><h3>Full customer journey</h3><p>Attribute revenue to the right channels and campaigns across the whole path to purchase.</p></div></div></div></section><section class="section" style="padding-top:0;"><div class="wrap"><div class="shot"><i class="ti ti-photo" style="font-size:20px;"></i> Ecommerce overview, revenue, conversion rate, top products</div></div></section><section class="section"><div class="wrap prose"><h2>Built for regulated, privacy-conscious commerce</h2><p>Matomo gives you accurate, unsampled ecommerce data with 100% ownership, hosted on your servers or EU-based cloud. Cookieless tracking keeps you compliant with GDPR and reduces consent friction, so you measure more visitors and lose fewer data points than consent-gated tools.</p><p>It works with Shopify, WooCommerce, Magento, PrestaShop and custom stores, and connects ecommerce data to heatmaps, funnels, A/B testing and attribution, one platform for the whole conversion picture.</p><div class="related"><strong>Related:</strong> <a>Conversion funnels</a> · <a>WooCommerce analytics</a> · <a>How to reduce cart abandonment</a> · <a>Ecommerce KPIs that matter</a></div></div></section><section class="section alt"><div class="wrap"><div class="sec-head"><h2>What ecommerce teams say</h2><p>Real results from stores that switched to privacy-first, fully-owned analytics.</p></div><div class="tmgrid"><div class="tm"><div class="stars">★★★★★</div><p class="q">"Matomo's funnels showed exactly where checkout was leaking. We fixed two steps and recovered revenue in the first month."</p><div class="who"><span class="av">DK</span><div><b>Daniel K.</b><span>Ecommerce Director</span></div></div></div><div class="tm"><div class="stars">★★★★★</div><p class="q">"Accurate, unsampled revenue data we actually own, and GDPR-ready, so we measure every visitor without a consent wall."</p><div class="who"><span class="av">AM</span><div><b>Aisha M.</b><span>Head of Growth, retail</span></div></div></div><div class="tm"><div class="stars">★★★★★</div><p class="q">"Finally one tool for traffic, behaviour and sales, no more stitching Google Analytics to a separate heatmap tool."</p><div class="who"><span class="av">TB</span><div><b>Tom B.</b><span>Founder, DTC brand</span></div></div></div></div></div></section><section class="section"><div class="wrap"><div class="sec-head"><h2>Analytics for every industry</h2><p>Ecommerce is just the start. Matomo fits regulated and privacy-conscious sectors.</p></div><div class="mlgrid"><a class="ml" href="#"><div class="mic"><i class="ti ti-cloud"></i></div><h3>SaaS analytics</h3><p>Track activation, retention and product usage, privately.</p><span class="go">Explore <i class="ti ti-arrow-right"></i></span></a><a class="ml" href="#"><div class="mic"><i class="ti ti-heartbeat"></i></div><h3>Healthcare</h3><p>HIPAA-ready analytics for patient-facing sites.</p><span class="go">Explore <i class="ti ti-arrow-right"></i></span></a><a class="ml" href="#"><div class="mic"><i class="ti ti-building-bank"></i></div><h3>Finance</h3><p>Compliant measurement for banks and fintech.</p><span class="go">Explore <i class="ti ti-arrow-right"></i></span></a><a class="ml" href="#"><div class="mic"><i class="ti ti-building-community"></i></div><h3>Government</h3><p>Data-sovereign analytics trusted by public bodies.</p><span class="go">Explore <i class="ti ti-arrow-right"></i></span></a></div></div></section><section class="section alt"><div class="wrap"><div class="sec-head"><h2>Learn more<button class="anno" type="button" data-title="Internal linking &middot; topic cluster" data-note="These related articles are not decorative. They build internal links between pages of the same <b>topic cluster (semantic cocoon)</b>, so topical authority and link equity flow between them and visitors stay longer. Internal linking is one of the strongest on-page SEO levers." aria-label="Internal linking &middot; topic cluster">i</button></h2><p>Go deeper on the topic with our guides and resources.</p></div><div class="learn"><a class="lcard" href="#"><div class="img" style="background:linear-gradient(135deg,#16b3a3,#15163a);"><i class="ti ti-shopping-cart-off"></i></div><div class="pad"><span class="lt">Blog</span><h3>How to reduce cart abandonment</h3><p>Find where buyers drop off in checkout and the fixes that recover revenue.</p><span class="rl">Read the blog <i class="ti ti-arrow-right"></i></span></div></a><a class="lcard" href="#"><div class="img" style="background:linear-gradient(135deg,#7b6ef0,#d8527c);"><i class="ti ti-chart-bar"></i></div><div class="pad"><span class="lt">Guide</span><h3>Ecommerce KPIs that matter</h3><p>The metrics that actually move revenue, and how to track them accurately.</p><span class="rl">Read the guide <i class="ti ti-arrow-right"></i></span></div></a><a class="lcard" href="#"><div class="img" style="background:linear-gradient(135deg,#1f8fe0,#16b3a3);"><i class="ti ti-trending-up"></i></div><div class="pad"><span class="lt">Blog</span><h3>Ecommerce conversion optimization</h3><p>A practical CRO playbook for online stores, from funnels to A/B testing.</p><span class="rl">Read the blog <i class="ti ti-arrow-right"></i></span></div></a></div></div></section><section class="section"><div class="wrap"><div class="sec-head"><h2>Frequently asked questions<button class="anno" type="button" data-title="Why an FAQ" data-note="The FAQ targets <b>long-tail and 'People Also Ask'</b> queries, makes the page eligible for <b>FAQ rich results</b> in Google, and answers buying objections, all of which lift both rankings and conversion." aria-label="Why an FAQ">i</button></h2></div><div class="faq"><details><summary>Does Matomo work with Shopify and WooCommerce?<i class="ti ti-chevron-down"></i></summary><p>Yes. Matomo integrates with Shopify, WooCommerce, Magento, PrestaShop and custom stores to track sales, products and revenue.</p></details><details><summary>Is ecommerce data sampled?<i class="ti ti-chevron-down"></i></summary><p>No. Matomo processes 100% of your ecommerce data with no sampling, so revenue figures are accurate.</p></details><details><summary>Can I track cart abandonment?<i class="ti ti-chevron-down"></i></summary><p>Yes. Ecommerce funnels show exactly where buyers drop off, and heatmaps/recordings help you understand why.</p></details><details><summary>Do I own my ecommerce data?<i class="ti ti-chevron-down"></i></summary><p>Yes. You keep 100% data ownership, self-hosted or on EU-based Matomo Cloud.</p></details></div></div></section><section class="section"><div class="wrap"><div class="callout"><h2>Turn store traffic into revenue you understand<button class="anno" type="button" data-title="Final conversion CTA" data-note="A closing call-to-action gives the now-convinced visitor <b>one last, frictionless push to start a free trial</b>. Repeating the CTA at the end of the page is one of the simplest, highest-impact conversion-rate levers." aria-label="Final conversion CTA">i</button></h2><p>Start your free 21-day trial, accurate ecommerce analytics you own.</p><a class="btn btn-navy">Start your free trial</a></div></div></section><footer class="site"><div class="wrap">
+<div class="cols">
+<div><h4>Product</h4><a>Web analytics</a><a>Heatmaps</a><a>Session recordings</a><a>A/B testing</a><a>Funnels</a><a>Tag Manager</a></div>
+<div><h4>Why Matomo</h4><a>100% data ownership</a><a>GDPR</a><a>Cookieless</a><a>Open source</a><a>No data sampling</a></div>
+<div><h4>Resources</h4><a>Blog</a><a>Guides</a><a>Case studies</a><a>Newsletter</a><a>Help centre</a></div>
+<div><h4>Compare</h4><a>vs Google Analytics</a><a>vs Hotjar</a><a>vs Plausible</a><a>vs Amplitude</a><a>vs Piwik PRO</a></div>
+<div><h4>Company</h4><a>About</a><a>History</a><a>Hiring</a><a>Contact</a><a>Partners</a></div>
+</div>
+<div class="base"><p class="tag">Built on open source. Governed by ethics. Powered by insight.</p><p class="cp">© 2026 Analytics Platform, Matomo</p></div>
+</div></footer><div class="anno-overlay" id="annoOv"><div class="anno-card"><button class="x" id="annoX" aria-label="Close">✕</button><div class="tag">◉ Why we made this choice</div><h4 id="annoTitle"></h4><p id="annoBody"></p></div></div>
+<div class="anno-hint"><b>i</b> Click the markers to see the SEO rationale</div>
+<a class="backhub" href="index.html"><i class="ti ti-arrow-left"></i> All templates</a>
+<script>(function(){var ov=document.getElementById('annoOv'),tt=document.getElementById('annoTitle'),bd=document.getElementById('annoBody');document.querySelectorAll('.anno').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();tt.textContent=a.getAttribute('data-title')||'Why we made this choice';bd.innerHTML=a.getAttribute('data-note')||'';ov.classList.add('show');});});function c(){ov.classList.remove('show');}document.getElementById('annoX').addEventListener('click',c);ov.addEventListener('click',function(e){if(e.target===ov)c();});document.addEventListener('keydown',function(e){if(e.key==='Escape')c();});})();</script></body></html>
