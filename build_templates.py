@@ -283,6 +283,13 @@ nav.site .wrap{display:flex;align-items:center;justify-content:space-between;hei
 .bcat{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-bottom:50px;}
 .bcat a{font-size:13.5px;font-weight:500;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:30px;padding:8px 16px;cursor:pointer;transition:background .12s,color .12s,border-color .12s;}
 .bcat a.active,.bcat a:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
+.pager{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:46px;}
+.pager a{min-width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:10px;font-size:14px;font-weight:600;color:var(--navy);background:#fff;padding:0 12px;transition:border-color .12s,color .12s,background .12s;}
+.pager a:hover{border-color:var(--teal-bright);color:var(--teal);}
+.pager a.active{background:var(--navy);color:#fff;border-color:var(--navy);}
+.pager a.nav{color:var(--muted);}
+.pager a.nav:hover{color:var(--teal);}
+.pager .dots{color:var(--muted2);padding:0 4px;}
 .feat{display:grid;grid-template-columns:1.05fr 1fr;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;margin-bottom:56px;box-shadow:0 14px 40px -18px rgba(21,22,58,.2);}
 .feat .img{min-height:340px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:46px;}
 .feat .fbody{padding:42px 44px;display:flex;flex-direction:column;justify-content:center;}
@@ -729,7 +736,7 @@ pages['6-blog-pillar-bounce-rate.html']=shell(
 "What is bounce rate, what counts as a good bounce rate, and how do you reduce it? A clear guide with formulas, benchmarks and practical fixes.",
 '<section class="hero" style="padding:70px 0 34px;text-align:left;"><div class="wrap"><div style="max-width:760px;"><span class="eyebrow">Web analytics · Guide</span><h1 style="font-size:40px;margin:20px 0 16px;">What is bounce rate? Definition, benchmarks &amp; how to improve it</h1><p class="lead" style="margin:0;max-width:none;">Bounce rate is one of the most quoted, and most misunderstood, web metrics. Here\'s what it really measures, what a good rate looks like, and how to lower it.</p><div class="byline"><span class="avatar">SM</span><div class="bmeta"><b>Sophie Martin</b><span>Web Analytics Lead at Matomo · Updated June 2026 · 9 min read</span></div></div></div></div></section>'
 + '<section class="section" style="padding-top:40px;"><div class="wrap"><div class="article"><div class="acontent">'
-+ '<div class="inbrief"><h3><i class="ti ti-bolt"></i> In brief'+A_INBRIEF+'</h3><ul>'
++ '<div class="inbrief"><h3><i class="ti ti-bolt"></i> TL;DR'+A_INBRIEF+'</h3><ul>'
 + '<li>Bounce rate is the share of visits where someone views a single page and leaves with no further interaction.</li>'
 + '<li>The formula is simple: single-page visits ÷ total visits × 100.</li>'
 + '<li>A "good" rate depends on page type, 65-90% is normal for content, 20-45% for ecommerce and SaaS.</li>'
@@ -797,7 +804,7 @@ pages['7-blog-index.html']=shell(
 + f'<div style="text-align:center;margin:-34px auto 24px;font-size:13px;color:var(--muted2);">Browse by topic{A_BLOGCATS}</div>'
 + f'<div class="feat"><div class="img" style="background:{GRADS[0]};"><i class="ti ti-shield-x"></i></div><div class="fbody"><span class="ftag">Featured · {fcat}</span><h2>{ftitle}</h2><p class="fx">{fx}</p><div class="pmeta"><span class="av">{fini}</span><div><b>{fauth}</b> · {fread}</div></div></div></div>'
 + f'<div class="postgrid">{"".join(post_card(p) for p in BLOG_POSTS)}</div>'
-+ '<div style="text-align:center;margin-top:44px;"><a class="btn btn-ghost">Load more articles</a></div>'
++ '<div class="pager"><a class="nav">‹ Prev</a><a class="active">1</a><a>2</a><a>3</a><span class="dots">…</span><a>7</a><a class="nav">Next ›</a></div>'
 + '</div></section>'
 + '<section class="section alt"><div class="wrap"><div class="callout"><h2>Get the privacy-first analytics playbook</h2><p>One actionable, privacy-first analytics email a month. Join 50,000+ marketers.</p><div class="sideform" style="flex-direction:row;max-width:400px;margin:0 auto;"><input type="email" placeholder="you@company.com"><a class="btn btn-navy">Subscribe</a></div></div></div></section>')
 
