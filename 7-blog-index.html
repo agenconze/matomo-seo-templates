@@ -173,6 +173,12 @@ nav.site .wrap{display:flex;align-items:center;justify-content:space-between;hei
 .flist{list-style:none;margin:0 0 30px;padding:0;}
 .flist li{position:relative;padding-left:28px;margin-bottom:15px;font-size:16px;color:#3c3d5a;line-height:1.55;}
 .flist li::before{content:"";position:absolute;left:3px;top:8px;width:8px;height:8px;border-radius:50%;background:var(--teal-bright);}
+.more-content{display:none;}
+.more-content.open{display:block;}
+.more-content p{font-size:16px;color:#3c3d5a;line-height:1.6;margin:0 0 14px;}
+.more-toggle{display:inline-flex;align-items:center;gap:5px;color:var(--teal);font-weight:600;font-size:15px;cursor:pointer;margin-bottom:26px;}
+.more-toggle::after{content:"\203A";transform:rotate(90deg);display:inline-block;font-size:18px;line-height:1;}
+.more-toggle.open::after{transform:rotate(-90deg);}
 .fbtn{display:inline-block;border:1.5px solid var(--navy);color:var(--navy);border-radius:32px;padding:13px 32px;font-weight:600;font-size:15px;transition:background .14s,color .14s;}
 .fbtn:hover{background:var(--navy);color:#fff;}
 .mock{border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 24px 60px -16px rgba(21,22,58,.28);background:#fff;max-width:100%;}
@@ -386,4 +392,4 @@ footer.site .base .cp{font-size:12px;color:#6a6b85;}
 </div></footer><div class="anno-overlay" id="annoOv"><div class="anno-card"><button class="x" id="annoX" aria-label="Close">✕</button><div class="tag">◉ Why we made this choice</div><h4 id="annoTitle"></h4><p id="annoBody"></p></div></div>
 <div class="anno-hint"><b>i</b> Click the markers to see the SEO rationale</div>
 <a class="backhub" href="index.html"><i class="ti ti-arrow-left"></i> All templates</a>
-<script>(function(){var ov=document.getElementById('annoOv'),tt=document.getElementById('annoTitle'),bd=document.getElementById('annoBody');document.querySelectorAll('.anno').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();tt.textContent=a.getAttribute('data-title')||'Why we made this choice';bd.innerHTML=a.getAttribute('data-note')||'';ov.classList.add('show');});});function c(){ov.classList.remove('show');}document.getElementById('annoX').addEventListener('click',c);ov.addEventListener('click',function(e){if(e.target===ov)c();});document.addEventListener('keydown',function(e){if(e.key==='Escape')c();});})();</script></body></html>
+<script>(function(){var ov=document.getElementById('annoOv'),tt=document.getElementById('annoTitle'),bd=document.getElementById('annoBody');document.querySelectorAll('.anno').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();tt.textContent=a.getAttribute('data-title')||'Why we made this choice';bd.innerHTML=a.getAttribute('data-note')||'';ov.classList.add('show');});});function c(){ov.classList.remove('show');}document.getElementById('annoX').addEventListener('click',c);ov.addEventListener('click',function(e){if(e.target===ov)c();});document.addEventListener('keydown',function(e){if(e.key==='Escape')c();});document.querySelectorAll('.more-toggle').forEach(function(t){t.addEventListener('click',function(){var mc=t.previousElementSibling;var op=mc.classList.toggle('open');t.classList.toggle('open',op);t.firstChild.textContent=op?'Read less':'Read more';});});})();</script></body></html>

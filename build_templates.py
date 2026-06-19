@@ -173,6 +173,12 @@ nav.site .wrap{display:flex;align-items:center;justify-content:space-between;hei
 .flist{list-style:none;margin:0 0 30px;padding:0;}
 .flist li{position:relative;padding-left:28px;margin-bottom:15px;font-size:16px;color:#3c3d5a;line-height:1.55;}
 .flist li::before{content:"";position:absolute;left:3px;top:8px;width:8px;height:8px;border-radius:50%;background:var(--teal-bright);}
+.more-content{display:none;}
+.more-content.open{display:block;}
+.more-content p{font-size:16px;color:#3c3d5a;line-height:1.6;margin:0 0 14px;}
+.more-toggle{display:inline-flex;align-items:center;gap:5px;color:var(--teal);font-weight:600;font-size:15px;cursor:pointer;margin-bottom:26px;}
+.more-toggle::after{content:"\\203A";transform:rotate(90deg);display:inline-block;font-size:18px;line-height:1;}
+.more-toggle.open::after{transform:rotate(-90deg);}
 .fbtn{display:inline-block;border:1.5px solid var(--navy);color:var(--navy);border-radius:32px;padding:13px 32px;font-weight:600;font-size:15px;transition:background .14s,color .14s;}
 .fbtn:hover{background:var(--navy);color:#fff;}
 .mock{border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 24px 60px -16px rgba(21,22,58,.28);background:#fff;max-width:100%;}
@@ -392,7 +398,7 @@ FOOTER = """<footer class="site"><div class="wrap">
 ANNO_JS="""<div class="anno-overlay" id="annoOv"><div class="anno-card"><button class="x" id="annoX" aria-label="Close">✕</button><div class="tag">◉ Why we made this choice</div><h4 id="annoTitle"></h4><p id="annoBody"></p></div></div>
 <div class="anno-hint"><b>i</b> Click the markers to see the SEO rationale</div>
 <a class="backhub" href="index.html"><i class="ti ti-arrow-left"></i> All templates</a>
-<script>(function(){var ov=document.getElementById('annoOv'),tt=document.getElementById('annoTitle'),bd=document.getElementById('annoBody');document.querySelectorAll('.anno').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();tt.textContent=a.getAttribute('data-title')||'Why we made this choice';bd.innerHTML=a.getAttribute('data-note')||'';ov.classList.add('show');});});function c(){ov.classList.remove('show');}document.getElementById('annoX').addEventListener('click',c);ov.addEventListener('click',function(e){if(e.target===ov)c();});document.addEventListener('keydown',function(e){if(e.key==='Escape')c();});})();</script>"""
+<script>(function(){var ov=document.getElementById('annoOv'),tt=document.getElementById('annoTitle'),bd=document.getElementById('annoBody');document.querySelectorAll('.anno').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();tt.textContent=a.getAttribute('data-title')||'Why we made this choice';bd.innerHTML=a.getAttribute('data-note')||'';ov.classList.add('show');});});function c(){ov.classList.remove('show');}document.getElementById('annoX').addEventListener('click',c);ov.addEventListener('click',function(e){if(e.target===ov)c();});document.addEventListener('keydown',function(e){if(e.key==='Escape')c();});document.querySelectorAll('.more-toggle').forEach(function(t){t.addEventListener('click',function(){var mc=t.previousElementSibling;var op=mc.classList.toggle('open');t.classList.toggle('open',op);t.firstChild.textContent=op?'Read less':'Read more';});});})();</script>"""
 
 def shell(title, desc, body):
     return f"""<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -460,11 +466,12 @@ def vsband(eyebrow,h2,sub,items):
     cards="".join(f'<a class="vscard" href="#"><div class="vsmatch"><span class="m">Matomo</span><span class="x">VS</span><span class="o">{c}</span></div><p>{b}</p><span class="go">See the comparison <i class="ti ti-arrow-right"></i></span></a>' for c,b in items)
     return f'<section class="vsband"><div class="wrap"><div class="head"><span class="eyebrow">{eyebrow}</span><h2>{h2}{A_VS}</h2><p>{sub}</p></div><div class="vsgrid">{cards}</div></div></section>'
 
-def frow(eyebrow,h2,lead,bullets,cta,visual,rev=False,alt=False,note=False):
+def frow(eyebrow,h2,lead,bullets,cta,visual,rev=False,alt=False,note=False,more=""):
     lis="".join(f'<li>{b}</li>' for b in bullets)
     btn=f'<a class="fbtn">{cta}</a>' if cta else ''
     nt=A_FROW if note else ""
-    text=f'<div class="ftext"><p class="feyebrow">{eyebrow}</p><h2>{h2}{nt}</h2><p>{lead}</p><ul class="flist">{lis}</ul>{btn}</div>'
+    moreblock=f'<div class="more-content">{more}</div><a class="more-toggle">Read more</a>' if more else ''
+    text=f'<div class="ftext"><p class="feyebrow">{eyebrow}</p><h2>{h2}{nt}</h2><p>{lead}</p><ul class="flist">{lis}</ul>{moreblock}{btn}</div>'
     sec='section alt' if alt else 'section'
     return f'<section class="{sec}"><div class="wrap"><div class="frow{" rev" if rev else ""}">{text}<div class="fvisual">{visual}</div></div></div></section>'
 
@@ -663,19 +670,22 @@ hero("Comparison","Matomo vs Google Analytics",
 ["EU-hosted data, with IP anonymisation and first-party cookies.",
 "CNIL-approved for tracking without a consent banner in France.",
 "Compliant with GDPR, CCPA and HIPAA out of the box."],
-"Start your free trial", COMPLIANCE_MOCK, rev=True, alt=False, note=True)
+"Start your free trial", COMPLIANCE_MOCK, rev=True, alt=False, note=True,
+more="<p>In 2022, the data protection authorities of France (CNIL) and Austria ruled that sending personal data to Google Analytics breaches the GDPR, because that data leaves the EU for US servers subject to surveillance laws. Many organisations had to suspend Google Analytics overnight.</p><p>Matomo removes the problem at the root: data stays in the EU or on your own servers, IP addresses are anonymised, and tracking can run on first-party cookies, or no cookies at all. The CNIL even lists Matomo among the few tools usable without asking for tracking consent, so you keep measuring the visitors who would otherwise refuse a banner.</p>")
 + frow("Data ownership","Your data stays 100% yours",
 "With Google Analytics, your data lives on Google's servers and feeds its advertising products. With Matomo, you own every data point, self-hosted or on EU-based cloud, and can export all of it whenever you want.",
 ["Self-host on your own infrastructure, or use EU-based Matomo Cloud.",
 "Export every raw data point via SQL or API, with no lock-in.",
 "Visitor data is never sold, shared or mined for ads."],
-"Book a demo", OWNERSHIP_MOCK, rev=False, alt=True)
+"Book a demo", OWNERSHIP_MOCK, rev=False, alt=True,
+more="<p>With Google Analytics, your visitor data is processed on Google's infrastructure and can be used to improve its own advertising products. You rent access to aggregated reports: you never truly own the underlying data, and you cannot export it raw.</p><p>With Matomo, every interaction is stored in a database you control, on your servers or in EU-based Matomo Cloud. You can query it directly in SQL, pull it through the Reporting API, and delete or export it at any time. No sampling, no black box, no lock-in: if you ever leave, you take 100% of your history with you.</p>")
 + frow("Data accuracy","Unsampled data you can actually trust",
 "GA4 starts sampling once a report passes roughly 10 million rows, adding guesswork to the numbers your decisions rest on. Matomo processes 100% of your traffic, with no sampling and no hit limits.",
 ["No data sampling, ever. The report you read is the reality.",
 "No hit limits, and no surprise GA360 bill at scale.",
 "Raw, unaggregated data you can audit line by line."],
-"Start your free trial", DASH_MOCK, rev=True, alt=False)
+"Start your free trial", DASH_MOCK, rev=True, alt=False,
+more="<p>GA4 applies sampling once a report exceeds a threshold (around 10 million events on the standard tier), and it also models and estimates parts of the data it no longer collects since consent rates dropped. The numbers you act on are therefore approximations that can shift between two visits to the same report.</p><p>Matomo processes every single hit, with no sampling and no hit limits, so two people opening the same report always see the same figure. For teams whose budget decisions depend on the data, removing that uncertainty is often the single biggest reason to switch.</p>")
 + testimonials("Why they chose Matomo over Google Analytics", GA_TESTI, "Real reasons teams leave Google Analytics, in their own words.")
 + '<section class="section"><div class="wrap" style="max-width:760px;"><div style="background:#fff;border:1px solid var(--line);border-left:3px solid #d4843a;border-radius:12px;padding:22px 24px;margin:0 0 22px;"><h3 style="font-size:17px;margin-bottom:6px;color:var(--navy);">Where Google Analytics wins</h3><p style="margin:0;font-size:16px;color:var(--muted);">Native Google Ads and Marketing Platform integration, plus a huge ecosystem of tutorials. If your stack is 100% Google and data ownership is not a concern, GA can fit. On privacy, ownership, accuracy and behaviour analytics, Matomo leads.</p></div>'
 + '<div class="related"><strong>Keep comparing:</strong>'+A_KEEPCMP+' <a>Matomo vs Piwik PRO</a> · <a>Matomo vs Plausible</a> · <a>Best Google Analytics alternatives</a> · <a>How to migrate from GA to Matomo</a></div></div></section>'
