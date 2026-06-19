@@ -426,6 +426,13 @@ A_HERO=anno("The whole header is engineered to rank <b>and</b> convert at once: 
 A_FROW=anno("These alternating text-and-visual sections add the <b>in-depth, keyword-rich content</b> Google needs to rank the page, while the visuals keep it engaging. Thin landing pages rarely rank, this is where the page earns its keywords.","SEO content block")
 A_CALLOUT=anno("A closing call-to-action gives the now-convinced visitor <b>one last, frictionless push to start a free trial</b>. Repeating the CTA at the end of the page is one of the simplest, highest-impact conversion-rate levers.","Final conversion CTA")
 A_KEEPCMP=anno("These links mesh the <b>comparison pages of the same template</b> together (vs Piwik PRO, vs Plausible, alternatives, migration). It spreads link equity across the comparison cluster and keeps high-intent visitors exploring options where Matomo wins.","Internal linking &middot; same template")
+A_DOCS=anno("Linking straight to the detailed install docs is both a <b>UX</b> and an <b>SEO</b> move: it gets users to value fast, and it builds <b>internal links</b> to high-intent documentation in the same <b>topic cluster</b>, passing link equity and signalling topical depth to Google.","Documentation deep-links")
+A_FAQOPT=anno("<b>This section is optional.</b> Add it only when you have genuine long-tail questions to answer, an empty or padded FAQ adds no value. When you do, it targets <b>'People Also Ask'</b> queries, makes the page eligible for <b>FAQ rich results</b> in Google, and answers buying objections, lifting both rankings and conversion.","FAQ &middot; optional section")
+SHOPIFY_LINKS=[
+("ti-brand-wordpress","WordPress","Privacy-first analytics with the official Matomo plugin."),
+("ti-shopping-bag","WooCommerce","Ecommerce analytics inside your WordPress store."),
+("ti-template","Drupal","Track any Drupal site with the Matomo module."),
+("ti-puzzle","Joomla, Wix & more","A universal tag and integrations for every platform.")]
 
 RATINGS = f"""<div class="ratings">
 <span class="rb"><span class="dot" style="background:#ff4f42;">C</span>Capterra <span class="star">★</span>4.7 <small>· 62 reviews</small></span>
@@ -704,43 +711,31 @@ more="<p>GA4 applies sampling once a report exceeds a threshold (around 10 milli
 ])
 + callout("Own your analytics. Drop the data limits.","Try Matomo free for 21 days, or self-host it for free, your data, your servers.","Get started for free"))
 
-# ============ 4. CMS LANDING, WordPress Analytics ============
-pages['4-cms-landing-wordpress.html']=shell(
-"WordPress Analytics Plugin, Easy Setup | Matomo",
-"Add privacy-first analytics to WordPress in minutes with the official Matomo plugin. Heatmaps, goals and GDPR-ready tracking, no coding, no consent banner.",
-hero("WordPress analytics","Privacy-first analytics<br>for WordPress",
-"Install the official Matomo plugin and get powerful, GDPR-ready analytics right inside your WordPress dashboard, no code, no consent banner, no data sharing.",
-"Add to WordPress","Start free trial","One-click install · 1M+ websites · Cookieless",ratings=True)
+# ============ 4. CMS LANDING, Shopify Analytics ============
+pages['4-cms-landing-shopify.html']=shell(
+"Shopify Analytics Integration, Easy Setup | Matomo",
+"Add privacy-first analytics to your Shopify store with Matomo. Install via Shopify Custom Pixels, GDPR-ready tracking and ecommerce reports, no theme code, no consent banner.",
+hero("Shopify analytics","Privacy-first analytics<br>for Shopify",
+"Add Matomo to your Shopify store with Custom Pixels and get powerful, GDPR-ready analytics, no theme code, no consent banner, no data sharing.",
+"Add to Shopify","Start free trial","Custom Pixels setup · 1M+ websites · Cookieless",ratings=True)
 + CLIENTS
-+ '<section class="section"><div class="wrap"><div class="sec-head"><h2>Set up in 3 steps, no developer</h2></div><div class="steps">'
-+ '<div class="step"><span class="n">1</span><div><h3>Install the plugin</h3><p>Search "Matomo" in your WordPress plugins, install and activate, like any other plugin.</p></div></div>'
-+ '<div class="step"><span class="n">2</span><div><h3>Tracking starts automatically</h3><p>No tag to paste, no theme edits. Matomo begins collecting data the moment it\'s active.</p></div></div>'
-+ '<div class="step"><span class="n">3</span><div><h3>See reports in your dashboard</h3><p>Traffic, goals, heatmaps and more, right inside WordPress, or in the full Matomo interface.</p></div></div>'
++ '<section class="section"><div class="wrap"><div class="sec-head"><h2>Installing Matomo for Shopify is easy'+A_DOCS+'</h2><p>Shopify keeps its theme code locked down, so Matomo installs the safe way: through Shopify <b>Custom Pixels</b>, a sandboxed space built for analytics scripts. No theme editing, no developer. Pick the method that matches your setup and follow the step-by-step documentation.</p></div><div class="grid g2">'
++ '<a class="card" href="#" style="display:block;color:inherit;"><div class="ic"><i class="ti ti-code"></i></div><h3>Install the Matomo tracking code using Shopify Custom Pixels</h3><p>Add Matomo\'s JavaScript tracking code as a Shopify Custom Pixel to start collecting pageviews, goals and ecommerce data in minutes.</p><span class="rl">Read the documentation <i class="ti ti-arrow-right"></i></span></a>'
++ '<a class="card" href="#" style="display:block;color:inherit;"><div class="ic"><i class="ti ti-tags"></i></div><h3>Install Matomo Tag Manager using Shopify Custom Pixels</h3><p>Deploy Matomo Tag Manager through a Shopify Custom Pixel to manage every tag, trigger and variable from one place, with no code changes.</p><span class="rl">Read the documentation <i class="ti ti-arrow-right"></i></span></a>'
 + '</div></div></section>'
-+ shot("Matomo reports inside the WordPress admin")
-+ '<section class="section alt"><div class="wrap"><div class="sec-head"><h2>Everything WordPress analytics should have</h2></div><div class="grid g3">'
-+ '<div class="card"><div class="ic"><i class="ti ti-shield-lock"></i></div><h3>No consent banner</h3><p>Cookieless, GDPR-ready tracking that works without a cookie pop-up in many countries.</p></div>'
-+ '<div class="card"><div class="ic"><i class="ti ti-database"></i></div><h3>Your data, on your host</h3><p>Store analytics in your own WordPress database, nothing shared with Big Tech.</p></div>'
-+ '<div class="card"><div class="ic"><i class="ti ti-click"></i></div><h3>Heatmaps & goals built in</h3><p>Go beyond pageviews with heatmaps, goals and ecommerce tracking for WooCommerce.</p></div>'
++ morelinks("Other integrations","Matomo plugs into every major CMS and platform, not just Shopify.", SHOPIFY_LINKS)
++ '<section class="section"><div class="wrap"><div class="sec-head"><h2>Go deeper on the topic'+A_MAILLAGE+'</h2><p>Get more from Matomo on Shopify with our guides and resources.</p></div><div class="learn">'
++ '<a class="lcard" href="#"><div class="img" style="background:'+GRADS[0]+';"><i class="ti ti-plug"></i></div><div class="pad"><span class="lt">Guide</span><h3>How to add analytics to Shopify</h3><p>Step-by-step: set up Matomo with Shopify Custom Pixels and start tracking.</p><span class="rl">Read the guide <i class="ti ti-arrow-right"></i></span></div></a>'
++ '<a class="lcard" href="#"><div class="img" style="background:'+GRADS[1]+';"><i class="ti ti-shield-check"></i></div><div class="pad"><span class="lt">Blog</span><h3>Shopify cookie &amp; GDPR compliance</h3><p>What Shopify merchants must know about cookies, consent and visitor data.</p><span class="rl">Read the blog <i class="ti ti-arrow-right"></i></span></div></a>'
++ '<a class="lcard" href="#"><div class="img" style="background:'+GRADS[2]+';"><i class="ti ti-shopping-cart"></i></div><div class="pad"><span class="lt">Use case</span><h3>Shopify ecommerce analytics</h3><p>Track sales, products and cart abandonment across your Shopify store.</p><span class="rl">Explore <i class="ti ti-arrow-right"></i></span></div></a>'
 + '</div></div></section>'
-+ morelinks("Other integrations","Matomo plugs into every major CMS and platform, not just WordPress.", CMS_LINKS)
-+ testimonials("What WordPress teams say", CMS_TESTI, "From agencies to publishers, why WordPress sites switch to Matomo.")
-+ '<section class="section"><div class="wrap prose"><h2>Why WordPress sites choose Matomo</h2>'
-+ '<p>WordPress powers a huge share of the web, and most sites bolt on Google Analytics by default, handing visitor data to a third party and triggering a consent banner. Matomo\'s official plugin keeps analytics inside your own WordPress install, so you own the data and stay compliant without the friction.</p>'
-+ '<p>Because it\'s the same Matomo platform, you also get heatmaps, session recordings, goals, funnels and WooCommerce ecommerce reporting, no second tool, no extra data processor to vet.</p>'
-+ '<div class="related"><strong>Related:</strong> <a>WooCommerce analytics</a> · <a>Cookieless tracking</a> · <a>GDPR-compliant analytics</a> · <a>Matomo vs Google Analytics</a></div></div></section>'
-+ learnmore([
-("ti-plug","Guide","How to add analytics to WordPress","Step-by-step: install, configure and start tracking without touching code.","Read the guide"),
-("ti-shield-check","Blog","WordPress GDPR compliance","What WordPress site owners must know about cookies, consent and visitor data.","Read the blog"),
-("ti-shopping-cart","Use case","WooCommerce analytics","Track sales, products and cart abandonment inside your WordPress store.","Explore"),
-])
-+ faq([
-("Is the Matomo WordPress plugin free?","Yes. The Matomo for WordPress plugin is free and open source. You can also connect a WordPress site to Matomo Cloud."),
-("Do I need a consent banner with Matomo on WordPress?","In many jurisdictions, no. Matomo\'s cookieless configuration allows consent-free tracking, always confirm with your DPO."),
-("Does it work with WooCommerce?","Yes. Matomo includes ecommerce reporting that tracks WooCommerce sales, products and conversion rates."),
-("Will it slow down my WordPress site?","No. Matomo tracking is lightweight and loads asynchronously, with no measurable impact on page speed."),
-])
-+ callout("Add privacy-first analytics to WordPress","Install the official plugin and start tracking in minutes, free.","Add to WordPress"))
++ '<section class="section alt"><div class="wrap"><div class="sec-head"><h2>Frequently asked questions'+A_FAQOPT+'</h2></div><div class="faq">'
++ '<details><summary>Is the Matomo Shopify integration free?<i class="ti ti-chevron-down"></i></summary><p>Yes. Matomo is free and open source on-premise, and you can also connect your Shopify store to Matomo Cloud on a paid plan with a free trial.</p></details>'
++ '<details><summary>Do I need a consent banner with Matomo on Shopify?<i class="ti ti-chevron-down"></i></summary><p>In many jurisdictions, no. Matomo\'s cookieless configuration allows consent-free tracking, always confirm with your DPO.</p></details>'
++ '<details><summary>Does Matomo track Shopify ecommerce and orders?<i class="ti ti-chevron-down"></i></summary><p>Yes. Once installed via Custom Pixels, Matomo\'s ecommerce reporting tracks product views, add-to-cart, orders and conversion rates.</p></details>'
++ '<details><summary>Will it slow down my Shopify store?<i class="ti ti-chevron-down"></i></summary><p>No. Matomo tracking is lightweight and loads asynchronously through Custom Pixels, with no measurable impact on page speed.</p></details>'
++ '</div></div></section>'
++ callout("Add privacy-first analytics to Shopify","Set up Matomo with Shopify Custom Pixels and start tracking your store in minutes, free.","Add to Shopify"))
 
 # ============ 5. USE CASE LANDING, Ecommerce Analytics ============
 pages['5-use-case-ecommerce.html']=shell(
