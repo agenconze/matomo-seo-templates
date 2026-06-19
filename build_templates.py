@@ -561,12 +561,12 @@ hero("Behaviour analytics","Website heatmap software<br>that respects privacy",
 + '<div class="card"><div class="ic"><i class="ti ti-arrows-vertical"></i></div><h3>Scroll maps</h3><p>Know exactly how far visitors read, so your key message and CTAs never sit unseen below the fold.</p></div>'
 + '<div class="card"><div class="ic"><i class="ti ti-pointer"></i></div><h3>Move maps</h3><p>Follow mouse movement as a proxy for attention, and find the zones that genuinely engage people.</p></div>'
 + '</div></div></section>'
-+ frow("Behaviour, visualised","What is a website heatmap?",
-"A website heatmap turns thousands of visits into a single picture. Warm colours show where attention concentrates, cool colours show what gets ignored, so you see what visitors actually do, not just how many showed up.",
-["See behaviour at a glance, no rows of numbers to decode.",
-"Spot confusion, hesitation and rage-clicks the moment they happen.",
-"Compare desktop, tablet and mobile to find device-specific friction.",
-"Recorded cookieless, so you stay compliant by design."],
++ frow("How Matomo shows it","See exactly how visitors use your site",
+"Matomo turns thousands of visits into click, scroll and movement maps, so you see what people actually do, not just how many showed up. And unlike Hotjar or Crazy Egg, every map is built from cookieless, first-party data you fully own.",
+["Click maps: which buttons and links earn attention, and which dead zones confuse.",
+"Scroll maps: how far visitors really read, so key messages are never missed.",
+"Move maps: mouse movement as a proxy for where attention goes.",
+"100% data ownership and cookieless, unlike Hotjar or Crazy Egg."],
 "Start your free trial", HEAT_MOCK, rev=True, alt=True, note=True)
 + frow("Grow conversions","Turn behaviour into conversions",
 "Used alongside funnels and A/B testing, heatmaps replace opinions with evidence, so every design decision is backed by what real visitors do, and every CRO experiment targets the friction that actually costs you revenue.",
@@ -593,6 +593,7 @@ hero("Behaviour analytics","Website heatmap software<br>that respects privacy",
 ("ti-versus","Comparison","Matomo vs Google Analytics","See how Matomo compares to Google Analytics on privacy, accuracy and cost.","Compare tools"),
 ])
 + faq([
+("What is a website heatmap?","A website heatmap is a visual report of how visitors interact with a page: warm colours show where clicks, scrolls and attention concentrate, cool colours show what gets ignored. Matomo builds them from cookieless, first-party data, across desktop, tablet and mobile."),
 ("Are Matomo heatmaps GDPR compliant?","Yes. Matomo records heatmaps with first-party, cookieless tracking and IP anonymisation, and you keep 100% data ownership. In many jurisdictions this lets you run heatmaps without a consent banner."),
 ("How is Matomo different from Hotjar or Crazy Egg?","Hotjar and Crazy Egg send your visitors' behaviour to their own servers. Matomo lets you self-host or use EU-based cloud, so the data never leaves your control, and heatmaps sit in the same platform as your web analytics."),
 ("Can I use heatmaps without a cookie consent banner?","In many cases yes. Matomo's cookieless configuration and CNIL-recognised privacy controls allow consent-free tracking in several jurisdictions. Always confirm with your DPO for your specific case."),
