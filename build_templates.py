@@ -99,7 +99,9 @@ nav.site .wrap{display:flex;align-items:center;justify-content:space-between;hei
 .cmp2 thead th.col-mat{border-top-left-radius:16px;border-top-right-radius:16px;}
 .cmp2 tbody tr:last-child td.col-mat{border-bottom-left-radius:16px;border-bottom-right-radius:16px;}
 .cmp2 tbody td{font-size:15.5px;color:#33344f;border-bottom:1px solid var(--line);}
-.cmp2 tbody td.col-crit{font-weight:500;}
+.cmp2 tbody td.col-crit{vertical-align:top;padding-top:18px;}
+.cmp2 td.col-crit b{display:block;font-weight:600;color:var(--navy);font-size:15.5px;}
+.cmp2 td.col-crit .cd{display:block;font-size:13px;color:var(--muted);line-height:1.45;margin-top:4px;}
 .cmp2 tbody tr:last-child td{border-bottom:none;}
 .ck{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;}
 .ck.yes{background:var(--teal-bright);box-shadow:0 2px 7px rgba(15,138,126,.32);}
@@ -609,18 +611,39 @@ def cmptable_grouped(comp,groups):
     rows=""
     for cat,items in groups:
         rows+=f'<tr class="cat"><td class="col-crit">{cat}</td><td class="col-mat"></td><td class="col-comp"></td></tr>'
-        rows+="".join(f'<tr><td class="col-crit">{c}</td><td class="col-mat">{cmpcell(m)}</td><td class="col-comp">{cmpcell(g)}</td></tr>' for c,m,g in items)
+        rows+="".join(f'<tr><td class="col-crit"><b>{c}</b><span class="cd">{d}</span></td><td class="col-mat">{cmpcell(m)}</td><td class="col-comp">{cmpcell(g)}</td></tr>' for c,d,m,g in items)
     return ('<div class="cmp2-wrap"><table class="cmp2"><thead><tr>'
     '<th class="col-crit">What matters</th>'
     '<th class="col-mat"><span class="mat-logo">Matomo</span><span class="rec">Recommended</span></th>'
     f'<th class="col-comp">{comp}</th></tr></thead><tbody>{rows}</tbody></table></div>')
 GA_GROUPS=[
-("Privacy & data ownership",[("100% data ownership","yes","no"),("Cookieless / consent-free tracking","yes","no"),("No data sampling","yes","no"),("GDPR Manager & privacy controls","yes","part"),("Raw data access (SQL / API)","yes","part")]),
-("Hosting",[("Cloud hosting","yes","yes"),("On-premise self-hosting","yes","no")]),
-("Behaviour analytics",[("Heatmaps","yes","no"),("Session recordings","yes","no"),("A/B testing","yes","no"),("Form analytics","yes","no"),("Funnels & goals","yes","part")]),
-("Reporting & data",[("Unsampled reports","yes","no"),("Custom dimensions & segments","yes","yes"),("Ecommerce reporting","yes","yes"),("Roll-up reporting","yes","no"),("No hit / volume limits","yes","no")]),
-("Integrations",[("Google Ads integration","part","yes"),("Search Console integration","yes","yes"),("Tag manager","yes","yes")]),
-("Pricing",[("Free / open-source option","yes","yes")])]
+("Privacy & data ownership",[
+("100% data ownership","Your data is yours. Matomo never shares or sells it, unlike ad-funded tools.","yes","no"),
+("Cookieless / consent-free tracking","Track visitors without cookies, so you can often skip the consent banner.","yes","no"),
+("No data sampling","Reports use 100% of your data, never an estimate from a sample.","yes","no"),
+("GDPR Manager & privacy controls","Built-in tools to manage consent, anonymise data and stay compliant.","yes","part"),
+("Raw data access (SQL / API)","Query and export every raw data point via SQL or the API, no lock-in.","yes","part")]),
+("Hosting",[
+("Cloud hosting","No hassle, we host Matomo for you on secure EU-based servers.","yes","yes"),
+("On-premise self-hosting","Max flexibility: host Matomo on your own servers, ideal for sensitive data.","yes","no")]),
+("Behaviour analytics",[
+("Heatmaps","See where visitors click, move and scroll on any page.","yes","no"),
+("Session recordings","Replay real visits to understand the why behind the numbers.","yes","no"),
+("A/B testing","Test page variants and measure the impact on conversions.","yes","no"),
+("Form analytics","See where users hesitate and drop off in your forms.","yes","no"),
+("Funnels & goals","Track conversion funnels and goals across the journey.","yes","part")]),
+("Reporting & data",[
+("Unsampled reports","Every report uses all your data, even at high volume.","yes","no"),
+("Custom dimensions & segments","Slice your data by any custom dimension or segment.","yes","yes"),
+("Ecommerce reporting","Track revenue, products, carts and conversion rate.","yes","yes"),
+("Roll-up reporting","Aggregate several sites into one combined view.","yes","no"),
+("No hit / volume limits","No caps on traffic, and no surprise GA360-style bill.","yes","no")]),
+("Integrations",[
+("Google Ads integration","Connect campaign cost and conversion data from Google Ads.","part","yes"),
+("Search Console integration","Pull keyword and ranking data from Search Console.","yes","yes"),
+("Tag manager","Built-in tag manager to deploy tags without code.","yes","yes")]),
+("Pricing",[
+("Free / open-source option","Matomo On-Premise is free and open source forever.","yes","yes")])]
 cmp_table=cmptable_grouped("Google Analytics",GA_GROUPS)
 pages['2-vs-page-google-analytics.html']=shell(
 "Matomo vs Google Analytics: Honest 2026 Comparison",
