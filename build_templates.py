@@ -561,7 +561,7 @@ hero("Behaviour analytics","Website heatmap software<br>that respects privacy",
 + '<div class="card"><div class="ic"><i class="ti ti-arrows-vertical"></i></div><h3>Scroll maps</h3><p>Know exactly how far visitors read, so your key message and CTAs never sit unseen below the fold.</p></div>'
 + '<div class="card"><div class="ic"><i class="ti ti-pointer"></i></div><h3>Move maps</h3><p>Follow mouse movement as a proxy for attention, and find the zones that genuinely engage people.</p></div>'
 + '</div></div></section>'
-+ frow("How Matomo shows it","See exactly how visitors use your site",
++ frow("Click, scroll & move maps","See exactly how visitors use your site",
 "Matomo turns thousands of visits into click, scroll and movement maps, so you see what people actually do, not just how many showed up. And unlike Hotjar or Crazy Egg, every map is built from cookieless, first-party data you fully own.",
 ["Click maps: which buttons and links earn attention, and which dead zones confuse.",
 "Scroll maps: how far visitors really read, so key messages are never missed.",
