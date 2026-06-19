@@ -485,6 +485,12 @@ COMPLIANCE_MOCK="""<div class="mock"><div class="mockbar"><em></em><em></em><em>
 <div style="display:flex;flex-wrap:wrap;gap:9px;justify-content:center;max-width:310px;"><span class="cbadge">GDPR</span><span class="cbadge">CCPA</span><span class="cbadge">HIPAA</span><span class="cbadge">CNIL approved</span><span class="cbadge">EU hosting</span><span class="cbadge">Consent-free</span></div>
 </div></div>"""
 
+STORE_MOCK="""<div class="mock"><div class="mockbar"><em></em><em></em><em></em><span class="url">yourstore.com/product</span></div>
+<div class="mockbody" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center;">
+<div style="height:160px;border-radius:12px;background:linear-gradient(135deg,#16b3a3,#15163a);display:flex;align-items:center;justify-content:center;color:#fff;font-size:34px;"><i class="ti ti-shirt"></i></div>
+<div><div style="height:11px;width:75%;background:#edeff6;border-radius:6px;margin-bottom:11px;"></div><div style="height:11px;width:55%;background:#edeff6;border-radius:6px;margin-bottom:18px;"></div><div style="font-size:22px;font-weight:700;color:var(--navy);margin-bottom:16px;">$49.00</div><span style="display:inline-block;background:var(--navy);color:#fff;border-radius:9px;padding:11px 24px;font-size:13px;font-weight:600;">Add to cart</span></div>
+</div></div>"""
+
 OWNERSHIP_MOCK="""<div class="mock"><div class="mockbar"><em></em><em></em><em></em><span class="url">Where your data lives</span></div>
 <div class="mockbody" style="display:flex;flex-direction:column;justify-content:center;gap:0;">
 <div class="ownrow good"><div class="oic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/></svg></div><div><b>Matomo</b><span class="od">Your servers or EU-based cloud</span></div><span class="otag">You own 100%</span></div>
@@ -703,8 +709,9 @@ hero("Use case · Ecommerce","Ecommerce analytics<br>that grows revenue",
 "Track every sale, product and abandoned cart, and see the full journey from first visit to checkout, with data you fully own.",
 "Start your free trial","Book a demo","No credit card · GDPR-ready · For Shopify, WooCommerce & more",ratings=True)
 + CLIENTS
-+ '<section class="section"><div class="wrap prose"><h2>The challenge: traffic is easy, revenue insight is hard</h2>'
-+ '<p>Most ecommerce teams can see how many people visit, but not why carts are abandoned, which products convert, or where revenue leaks in the funnel. And the default tools sample data and ship it to third parties, which is a problem when traffic equals revenue and customers expect privacy.</p></div></section>'
++ frow("The challenge","Traffic is easy, revenue insight is hard",
+"Most ecommerce teams can see how many people visit, but not why carts are abandoned, which products convert, or where revenue leaks in the funnel. And the default tools sample data and ship it to third parties, which is a problem when traffic equals revenue and customers expect privacy.",
+[], "", STORE_MOCK, rev=False, alt=False)
 + '<section class="section alt"><div class="wrap"><div class="sec-head"><h2>How Matomo helps you sell more</h2><p>Every report mapped to a revenue question.</p></div><div class="grid g3">'
 + '<div class="card"><div class="ic"><i class="ti ti-shopping-cart"></i></div><h3>Revenue & product reports</h3><p>See sales, revenue, average order value and best/worst performing products in real time.</p></div>'
 + '<div class="card"><div class="ic"><i class="ti ti-filter"></i></div><h3>Cart & checkout funnels</h3><p>Find exactly which step loses buyers, then fix it with heatmaps and session recordings.</p></div>'
