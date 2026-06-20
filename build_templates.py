@@ -975,8 +975,7 @@ HOME_USECASES=[
 ("ti-building-store","Agencies","Manage privacy-first analytics for every client.","#"),
 ("ti-heartbeat","Healthcare","HIPAA-ready, privacy-grade analytics.","#"),
 ("ti-building-bank","Finance","Compliant measurement for fintech and banks.","#"),
-("ti-building-community","Government","Data-sovereign analytics for public bodies.","#"),
-("ti-search","SEO","Measure organic performance without sampling.","#")]
+("ti-building-community","Government","Data-sovereign analytics for public bodies.","#")]
 def hpost(grad,tag,title,desc,ini,author,read,href="6-blog-pillar-bounce-rate.html"):
     return f'<a class="post" href="{href}"><div class="img" style="background:{grad};"><i class="ti ti-article"></i></div><div class="pbody"><span class="ptag">{tag}</span><h3>{title}</h3><p>{desc}</p><div class="pmeta"><span class="av">{ini}</span><div><b>{author}</b> &middot; {read}</div></div></div></a>'
 pages['0-homepage.html']=shell(
