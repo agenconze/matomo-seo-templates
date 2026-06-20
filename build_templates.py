@@ -958,48 +958,6 @@ pages['9-features-hub.html']=shell(
 + featurehub(FEATURE_GROUPS)
 + callout("See it all on your own data","Start a free 21-day trial, no credit card, and explore every feature live.","Start your free trial"))
 
-# ============ 0. HOMEPAGE (mesh blocks added to the current home) ============
-HOME_FEATURES=[
-("ti-chart-line","Web analytics","All your traffic and engagement, privacy-first.","#"),
-("ti-flame","Heatmaps","See where visitors click, scroll and drop off.","1-feature-landing-heatmaps.html"),
-("ti-player-play","Session recordings","Replay real visits to understand the why.","#"),
-("ti-arrows-split-2","A/B testing","Test changes and measure the impact.","#"),
-("ti-filter","Funnel analysis","Find where visitors abandon your funnels.","#"),
-("ti-tags","Tag Manager","Deploy tags without touching code.","#"),
-("ti-forms","Form analytics","Cut form abandonment with field-level insight.","#"),
-("ti-shopping-cart","Ecommerce tracking","Revenue, products and cart analytics.","5-use-case-ecommerce.html")]
-HOME_USECASES=[
-("ti-shopping-cart","Ecommerce","Grow revenue with funnel and product analytics.","5-use-case-ecommerce.html"),
-("ti-cloud","SaaS","Track activation, retention and product usage.","#"),
-("ti-speakerphone","Marketing & CRO","Attribute channels and lift conversions.","#"),
-("ti-building-store","Agencies","Manage privacy-first analytics for every client.","#"),
-("ti-heartbeat","Healthcare","HIPAA-ready, privacy-grade analytics.","#"),
-("ti-building-bank","Finance","Compliant measurement for fintech and banks.","#"),
-("ti-building-community","Government","Data-sovereign analytics for public bodies.","#")]
-def hpost(grad,tag,title,desc,ini,author,read,href="6-blog-pillar-bounce-rate.html"):
-    return f'<a class="post" href="{href}"><div class="img" style="background:{grad};"><i class="ti ti-article"></i></div><div class="pbody"><span class="ptag">{tag}</span><h3>{title}</h3><p>{desc}</p><div class="pmeta"><span class="av">{ini}</span><div><b>{author}</b> &middot; {read}</div></div></div></a>'
-pages['0-homepage.html']=shell(
-"Matomo, The Privacy-First Web Analytics Platform | Google Analytics Alternative",
-"Matomo is the privacy-first, open-source web analytics platform with 100% data ownership and GDPR compliance. The Google Analytics alternative trusted by 1M+ websites.",
-hero("Web analytics","The privacy-first<br>web analytics platform",
-"100% data ownership, GDPR-ready and open source. The Google Analytics alternative trusted by over 1 million websites.",
-"Start your free trial","Book a demo","No credit card · Cookieless · Trusted by 1M+ websites",ratings=True)
-+ CLIENTS
-+ meshsection("Everything you can measure","From web analytics to heatmaps, A/B testing and attribution, all in one platform.", HOME_FEATURES, "See all features","9-features-hub.html", alt=False, note=A_MAILLAGE)
-+ meshsection("Built for your use case","Whatever you sell or measure, Matomo fits your context.", HOME_USECASES, "", "", alt=True, note=A_MAILLAGE)
-+ '<section class="section"><div class="wrap"><div class="sec-head"><h2>From the blog'+A_MAILLAGE+'</h2><p>Guides, comparisons and how-tos on privacy-first analytics.</p></div><div class="postgrid">'
-+ hpost(GRADS[0],"Web analytics","What is bounce rate?","Benchmarks and how to improve it, with accurate data.","SM","Sophie Martin","9 min")
-+ hpost(GRADS[1],"Google Analytics","Is Google Analytics GDPR compliant?","What the 2026 rulings mean for your site.","SM","Sophie Martin","8 min","2-vs-page-google-analytics.html")
-+ hpost(GRADS[2],"Conversion","What is a website heatmap?","Click, scroll and move maps explained.","MH","Marc Hugo","7 min","1-feature-landing-heatmaps.html")
-+ '</div><div style="text-align:center;margin-top:38px;"><a class="btn btn-navy" href="7-blog-index.html">Visit the blog</a></div></div></section>'
-+ faq([
-("Is Matomo free?","Matomo On-Premise is free and open source. Matomo Cloud is a paid hosted plan with a free trial. Both give you 100% data ownership."),
-("Is Matomo a good Google Analytics alternative?","Yes. Matomo gives you the same depth of reporting with 100% data ownership, no data sampling and GDPR compliance out of the box."),
-("Do I need a cookie consent banner with Matomo?","In many jurisdictions, no. Matomo's cookieless configuration allows consent-free tracking. Always confirm with your DPO."),
-("Can I self-host Matomo?","Yes. You can self-host Matomo On-Premise for free, or use EU-based Matomo Cloud if you prefer a managed option."),
-])
-+ callout("Own your analytics from day one","Start a free 21-day trial, no credit card, or self-host Matomo for free.","Start your free trial"))
-
 for fn,html in pages.items():
     with open(os.path.join(DIR,fn),'w') as f: f.write(html)
 print("wrote",len(pages),"templates:",", ".join(pages.keys()))
