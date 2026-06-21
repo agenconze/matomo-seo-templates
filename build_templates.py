@@ -218,6 +218,11 @@ nav.site .wrap{display:flex;align-items:center;justify-content:space-between;hei
 .ml .go{font-size:13px;font-weight:600;color:var(--teal);display:inline-flex;align-items:center;gap:5px;margin-top:3px;}
 @media(max-width:860px){.mlgrid{grid-template-columns:1fr 1fr;}}
 @media(max-width:560px){.mlgrid{grid-template-columns:1fr;}}
+.cmp2 tr.cmp-hide{display:none;}
+.cmp2.expanded tr.cmp-hide{display:table-row;}
+.cmp-more-btn{text-align:center;margin-top:22px;}
+.cmpmore{background:#fff;border:1.5px solid var(--navy);color:var(--navy);border-radius:30px;padding:11px 28px;font-weight:600;font-size:14px;cursor:pointer;transition:background .14s,color .14s;}
+.cmpmore:hover{background:var(--navy);color:#fff;}
 .cmp2 tr.cat td{background:var(--bg2);font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted2);padding-top:13px;padding-bottom:13px;}
 .cmp2 tr.cat td.col-mat{background:#d6f3ee;}
 .byline{display:flex;align-items:center;gap:13px;margin-top:24px;}
@@ -398,7 +403,7 @@ FOOTER = """<footer class="site"><div class="wrap">
 ANNO_JS="""<div class="anno-overlay" id="annoOv"><div class="anno-card"><button class="x" id="annoX" aria-label="Close">✕</button><div class="tag">◉ Why we made this choice</div><h4 id="annoTitle"></h4><p id="annoBody"></p></div></div>
 <div class="anno-hint"><b>i</b> Click the markers to see the SEO rationale</div>
 <a class="backhub" href="index.html"><i class="ti ti-arrow-left"></i> All templates</a>
-<script>(function(){var ov=document.getElementById('annoOv'),tt=document.getElementById('annoTitle'),bd=document.getElementById('annoBody');document.querySelectorAll('.anno').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();tt.textContent=a.getAttribute('data-title')||'Why we made this choice';bd.innerHTML=a.getAttribute('data-note')||'';ov.classList.add('show');});});function c(){ov.classList.remove('show');}document.getElementById('annoX').addEventListener('click',c);ov.addEventListener('click',function(e){if(e.target===ov)c();});document.addEventListener('keydown',function(e){if(e.key==='Escape')c();});document.querySelectorAll('.more-toggle').forEach(function(t){t.addEventListener('click',function(){var mc=t.previousElementSibling;var op=mc.classList.toggle('open');t.classList.toggle('open',op);t.firstChild.textContent=op?'Read less':'Read more';});});})();</script>"""
+<script>(function(){var ov=document.getElementById('annoOv'),tt=document.getElementById('annoTitle'),bd=document.getElementById('annoBody');document.querySelectorAll('.anno').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();tt.textContent=a.getAttribute('data-title')||'Why we made this choice';bd.innerHTML=a.getAttribute('data-note')||'';ov.classList.add('show');});});function c(){ov.classList.remove('show');}document.getElementById('annoX').addEventListener('click',c);ov.addEventListener('click',function(e){if(e.target===ov)c();});document.addEventListener('keydown',function(e){if(e.key==='Escape')c();});document.querySelectorAll('.more-toggle').forEach(function(t){t.addEventListener('click',function(){var mc=t.previousElementSibling;var op=mc.classList.toggle('open');t.classList.toggle('open',op);t.firstChild.textContent=op?'Read less':'Read more';});});document.querySelectorAll('.cmpmore').forEach(function(b){b.addEventListener('click',function(){var tb=b.closest('.cmptbl').querySelector('.cmp2');var ex=tb.classList.toggle('expanded');b.textContent=ex?'Show fewer':b.getAttribute('data-more');});});})();</script>"""
 
 def shell(title, desc, body):
     return f"""<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -646,15 +651,18 @@ more="<p>On their own, heatmaps are interesting. Combined with funnels, session 
 CK_YES='<span class="ck yes"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>'
 CK_NO='<span class="ck no"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#8a8ca6" stroke-width="3.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>'
 def cmpcell(v): return CK_YES if v=="yes" else ('<span class="pp">Partial</span>' if v=="part" else CK_NO)
-def cmptable_grouped(comp,groups):
-    rows=""
-    for cat,items in groups:
-        rows+=f'<tr class="cat"><td class="col-crit">{cat}</td><td class="col-mat"></td><td class="col-comp"></td></tr>'
-        rows+="".join(f'<tr><td class="col-crit"><b>{c}</b><span class="cd">{d}</span></td><td class="col-mat">{cmpcell(m)}</td><td class="col-comp">{cmpcell(g)}</td></tr>' for c,d,m,g in items)
-    return ('<div class="cmp2-wrap"><table class="cmp2"><thead><tr>'
+def cmptable_grouped(comp,groups,show_cats=2):
+    rows=""; hidden=0
+    for i,(cat,items) in enumerate(groups):
+        hc=' cmp-hide' if i>=show_cats else ''
+        if hc: hidden+=len(items)
+        rows+=f'<tr class="cat{hc}"><td class="col-crit">{cat}</td><td class="col-mat"></td><td class="col-comp"></td></tr>'
+        rows+="".join(f'<tr class="{hc.strip()}"><td class="col-crit"><b>{c}</b><span class="cd">{d}</span></td><td class="col-mat">{cmpcell(m)}</td><td class="col-comp">{cmpcell(g)}</td></tr>' for c,d,m,g in items)
+    btn=f'<div class="cmp-more-btn"><button type="button" class="cmpmore" data-more="Show {hidden} more criteria">Show {hidden} more criteria</button></div>' if hidden else ''
+    return ('<div class="cmptbl"><div class="cmp2-wrap"><table class="cmp2"><thead><tr>'
     '<th class="col-crit">What matters</th>'
     '<th class="col-mat"><span class="mat-logo">Matomo</span><span class="rec">Recommended</span></th>'
-    f'<th class="col-comp">{comp}</th></tr></thead><tbody>{rows}</tbody></table></div>')
+    f'<th class="col-comp">{comp}</th></tr></thead><tbody>{rows}</tbody></table></div>{btn}</div>')
 GA_GROUPS=[
 ("Privacy & data ownership",[
 ("100% data ownership","Your data is yours. Matomo never shares or sells it, unlike ad-funded tools.","yes","no"),
